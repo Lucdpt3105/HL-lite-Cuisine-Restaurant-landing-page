@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rancho&display=swap" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Élite Cuisine Restaurant - Fine Dining Experience</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Élite Cuisine Restaurant</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="./images/image1.png" alt="Delicious Food">
+                <div class="slide-content">
+                    <h1>Welcome to Élite Cuisine Restaurant</h1>
+                    <p>Experience the finest dining with our expertly crafted dishes</p>
+                    <button class="cta-button">Make a Reservation</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./images/image2.png" alt="Fine Dining">
+                <div class="slide-content">
+                    <h1>Exquisite Flavors</h1>
+                    <p>Fresh, healthy, and delicious cuisine for every palate</p>
+                    <button class="cta-button">View Menu</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./images/image3.png" alt="Chef Special">
+                <div class="slide-content">
+                    <h1>Chef's Special</h1>
+                    <p>Discover our signature dishes prepared by master chefs</p>
+                    <button class="cta-button">Learn More</button>
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Top Sellers Section -->
+    <section id="top-sellers" class="top-sellers-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Top Sellers</h2>
+                <p>Most Popular Dishes</p>
+            </div>
+            <div class="top-sellers-grid">
+                <div class="seller-card fade-in">
+                    <div class="seller-badge">🔥 Bestseller</div>
+                    <div class="seller-image">
+                        <img src="./images/v5_13.png" alt="Signature Steak">
+                    </div>
+                    <div class="seller-info">
+                        <h3>Signature Ribeye Steak</h3>
+                        <p>Prime cut ribeye with garlic mashed potatoes and red wine reduction</p>
+                        <div class="seller-details">
+                            <span class="price">$35</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">(4.9/5)</span>
+                            </div>
+                        </div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="seller-card fade-in">
+                    <div class="seller-badge">👑 Chef's Choice</div>
+                    <div class="seller-image">
+                        <img src="./images/v5_63.png" alt="Lobster Thermidor">
+                    </div>
+                    <div class="seller-info">
+                        <h3>Lobster Thermidor</h3>
+                        <p>Fresh lobster with creamy sauce, herbs, and gruyere cheese</p>
+                        <div class="seller-details">
+                            <span class="price">$42</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">(4.8/5)</span>
+                            </div>
+                        </div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="seller-card fade-in">
+                    <div class="seller-badge">🌟 Popular</div>
+                    <div class="seller-image">
+                        <img src="./images/v5_97.png" alt="Grilled Salmon">
+                    </div>
+                    <div class="seller-info">
+                        <h3>Grilled Atlantic Salmon</h3>
+                        <p>Fresh salmon fillet with lemon butter sauce and seasonal vegetables</p>
+                        <div class="seller-details">
+                            <span class="price">$28</span>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">(4.7/5)</span>
+                            </div>
+                        </div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="seller-card fade-in">
+                    <div class="seller-badge">💖 Customer Favorite</div>
+                    <div class="seller-image">
+                        <img src="./images/v12_80.png" alt="Truffle Pasta">
+                    </div>
+                    <div class="seller-info">
+                        <h3>Truffle Mushroom Pasta</h3>
+                        <p>Homemade pasta with truffle oil, wild mushrooms, and parmesan</p>
+                        <div class="seller-details">
+                            <span class="price">$26</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">(4.9/5)</span>
+                            </div>
+                        </div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Meet Our Experts</h2>
+                <p>Our Kitchen Masters</p>
+            </div>
+            <div class="chefs-grid">
+                <div class="chef-card fade-in">
+                    <div class="chef-image">
+                        <img src="./images/v12_96.png" alt="Head Chef">
+                    </div>
+                    <div class="chef-info">
+                        <h3>John Smith</h3>
+                        <p>Head Chef</p>
+                    </div>
+                </div>
+                <div class="chef-card fade-in">
+                    <div class="chef-image">
+                        <img src="./images/Pica-picfaceswap-20251001155346.png" alt="Sous Chef">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Fung Ainz Luke</h3>
+                        <p>Sous Chef</p>
+                    </div>
+                </div>
+                <div class="chef-card fade-in">
+                    <div class="chef-image">
+                        <img src="./images/Pica-picfaceswap-20251001155623.png" alt="Pastry Chef">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Huang Noel Hoa</h3>
+                        <p>Pastry Chef</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Menu</h2>
+                <p>Fine Dining</p>
+            </div>
+            <div class="menu-columns">
+                <div class="menu-column">
+                    <h3 class="menu-column-title">Breakfast</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Coffee with Milk</h4>
+                            <p>3 croissants, Marmalade</p>
+                            <span class="price">$15</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Pancake Special</h4>
+                            <p>Fresh berries, Maple syrup</p>
+                            <span class="price">$12</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>French Toast</h4>
+                            <p>Cinnamon, Powdered sugar</p>
+                            <span class="price">$14</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h3 class="menu-column-title">Lunch</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Grilled Salmon</h4>
+                            <p>Lemon butter, Vegetables</p>
+                            <span class="price">$25</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Caesar Salad</h4>
+                            <p>Chicken breast, Parmesan</p>
+                            <span class="price">$18</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Pasta Primavera</h4>
+                            <p>Fresh vegetables, Herbs</p>
+                            <span class="price">$22</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h3 class="menu-column-title">Dinner</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Ribeye Steak</h4>
+                            <p>Garlic mash, Red wine sauce</p>
+                            <span class="price">$35</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Lobster Thermidor</h4>
+                            <p>Creamy sauce, Fresh herbs</p>
+                            <span class="price">$42</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="./images/v5_13.png" alt="Coffee">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Duck Confit</h4>
+                            <p>Orange glaze, Wild rice</p>
+                            <span class="price">$38</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Upcoming Events</h2>
+                <p>Special Occasions</p>
+            </div>
+            <div class="events-carousel">
+                <div class="event-card">
+                    <img src="./images/image30.png" alt="Wine Tasting">
+                    <div class="event-info">
+                        <h3>Wine Tasting Night</h3>
+                        <p class="event-date">December 15, 2025</p>
+                        <p>Join us for an exclusive wine tasting featuring premium selections</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="images\image5.jpeg" alt="Chef's Table">
+                    <div class="event-info">
+                        <h3>Chef's Table Experience</h3>
+                        <p class="event-date">December 22, 2025</p>
+                        <p>An intimate dining experience with our head chef</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="./images/image40.png" alt="Holiday Menu">
+                    <div class="event-info">
+                        <h3>Holiday Special Menu</h3>
+                        <p class="event-date">December 24-31, 2025</p>
+                        <p>Celebrate the holidays with our specially crafted festive menu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-prev">‹</button>
+                <button class="carousel-next">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Make a Reservation</h2>
+                <p>Contact Us</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Fine Dining Street<br>Downtown, City Center</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@deluxerestaurant.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Thu: 11:00 AM - 10:00 PM<br>
+                               Fri-Sat: 11:00 AM - 11:00 PM<br>
+                               Sun: 10:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reservation-form">
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="guests" name="guests" required>
+                                <option value="">Number of Guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6+ Guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Special Requests (Optional)" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Make Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Deluxe Restaurant</h3>
+                    <p>Experience fine dining at its best. We serve fresh, delicious, and healthy cuisine crafted by our expert chefs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deluxe Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
