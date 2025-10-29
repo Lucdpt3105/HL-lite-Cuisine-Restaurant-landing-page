@@ -113,25 +113,32 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .slide {
-  display: none;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .slide.active {
-  display: block;
-  animation: fadeIn 2s ease;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: fadeIn 2s ease;
+  transition: transform 0.3s ease;
 }
 
 .slide-content {
@@ -188,6 +195,7 @@ body {
   cursor: pointer;
   border-radius: 50%;
   transition: all 0.3s ease;
+  z-index: 2;
 }
 
 .prev {
@@ -210,6 +218,7 @@ body {
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+  z-index: 3;
 }
 
 .dot {
