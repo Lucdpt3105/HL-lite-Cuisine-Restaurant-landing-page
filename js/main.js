@@ -149,7 +149,7 @@ function initScrollEffects() {
     }, observerOptions);
 
     // Observe all elements with fade-in animation
-    document.querySelectorAll('.section-header, .chef-card, .seller-card, .service-item').forEach(el => {
+    document.querySelectorAll('.section-header, .chef-card, .seller-card, .service-item, .about-restaurant-section, .chefs-section, .menu-section, .top-sellers-section, .events-section, .contact-section').forEach(el => {
         observer.observe(el);
     });
 
@@ -233,6 +233,55 @@ function initMenuEffects() {
             $(this).css('transform', 'translateX(0)');
         }
     );
+
+    // Order button click effects for menu items
+    $('.menu-order-btn').on('click', function(e) {
+        e.preventDefault();
+        const dishName = $(this).closest('.menu-item').find('h4').text();
+        const price = $(this).closest('.menu-item').find('.price').text();
+        
+        // Animation effect
+        $(this).addClass('clicked');
+        
+        // Show confirmation message
+        showMenuOrderConfirmation(dishName, price);
+        
+        // Reset button after animation
+        setTimeout(() => {
+            $(this).removeClass('clicked');
+        }, 300);
+    });
+}
+
+function showMenuOrderConfirmation(dishName, price) {
+    // Create or show confirmation message
+    let confirmationMsg = $('.menu-order-confirmation');
+    if (confirmationMsg.length === 0) {
+        $('body').append(`
+            <div class="menu-order-confirmation">
+                <div class="confirmation-content">
+                    <h3>🍽️ Added to Order!</h3>
+                    <p><strong>${dishName}</strong> (${price}) has been added to your order.</p>
+                    <button class="confirmation-close">Continue Browsing</button>
+                </div>
+            </div>
+        `);
+        confirmationMsg = $('.menu-order-confirmation');
+        
+        // Close button functionality
+        $('.confirmation-close').on('click', function() {
+            confirmationMsg.fadeOut(300);
+        });
+    } else {
+        confirmationMsg.find('p').html(`<strong>${dishName}</strong> (${price}) has been added to your order.`);
+    }
+    
+    confirmationMsg.fadeIn(300);
+    
+    // Auto hide after 3 seconds
+    setTimeout(() => {
+        confirmationMsg.fadeOut(300);
+    }, 3000);
 }
 
 // Events carousel functionality

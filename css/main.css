@@ -124,12 +124,14 @@ body {
 
 .slide.active {
   display: block;
+  animation: fadeIn 2s ease;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: fadeIn 2s ease;
 }
 
 .slide-content {
@@ -144,12 +146,7 @@ body {
   padding: 3rem;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-
-.slide.active .slide-content {
-  opacity: 1;
+  animation: fadeIn 2s ease;
 }
 
 .slide-content h1 {
@@ -261,6 +258,14 @@ body {
 .about-restaurant-section {
   padding: 6rem 0;
   background: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.about-restaurant-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-content-row {
@@ -441,6 +446,14 @@ body {
 .chefs-section {
   padding: 6rem 0;
   background: #f8f9fa;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.chefs-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .chefs-grid {
@@ -458,6 +471,7 @@ body {
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(30px);
+  position: relative;
 }
 
 .chef-card.fade-in {
@@ -488,25 +502,48 @@ body {
 }
 
 .chef-info {
-  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem 0;
+  transform: translateY(35%);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
 }
 
 .chef-info h3 {
   font-size: 1.5rem;
   color: #333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .chef-info p {
   color: #e76f51;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.chef-card:hover .chef-info {
+  transform: translateY(0);
 }
 
 /* Top Sellers Section */
 .top-sellers-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.top-sellers-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .top-sellers-grid {
@@ -703,6 +740,14 @@ body {
 .menu-section {
   padding: 6rem 0;
   background: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.menu-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .menu-columns {
@@ -769,19 +814,55 @@ body {
 .menu-item-info p {
   color: #666;
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.menu-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .price {
   font-size: 1.3rem;
   font-weight: bold;
   color: #e76f51;
+  white-space: nowrap;
+}
+
+.menu-order-btn {
+  background: linear-gradient(45deg, #e76f51, #f4a261);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.menu-order-btn:hover {
+  background: linear-gradient(45deg, #d35400, #e76f51);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 111, 81, 0.3);
 }
 
 /* Events Section */
 .events-section {
   padding: 6rem 0;
   background: #f8f9fa;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.events-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .events-carousel {
@@ -850,6 +931,14 @@ body {
 .contact-section {
   padding: 6rem 0;
   background: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.contact-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-content {
@@ -980,6 +1069,66 @@ body {
   to {
     opacity: 1;
   }
+}
+
+/* Menu Order Confirmation Modal */
+.menu-order-confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease;
+}
+
+.menu-order-confirmation .confirmation-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.menu-order-confirmation .confirmation-content h3 {
+  color: #e76f51;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.menu-order-confirmation .confirmation-content p {
+  color: #333;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.menu-order-confirmation .confirmation-close {
+  background: linear-gradient(45deg, #e76f51, #f4a261);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-order-confirmation .confirmation-close:hover {
+  background: linear-gradient(45deg, #d35400, #e76f51);
+  transform: translateY(-2px);
+}
+
+.menu-order-btn.clicked {
+  transform: translateY(-2px) scale(0.95);
+  background: linear-gradient(45deg, #d35400, #e76f51);
 }
 
 /* ===================================
