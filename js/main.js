@@ -1,7 +1,9 @@
 // DOM Ready
 $(document).ready(function() {
-    // Initialize all components
-    initNavigation();
+    // Show welcome animation first, then initialize components
+    showWelcomeAnimation();
+    
+    // Initialize slideshow immediately but navbar will show after welcome
     initSlideshow();
     initScrollEffects();
     initTopSellers();
@@ -9,6 +11,24 @@ $(document).ready(function() {
     initEventsCarousel();
     initContactForm();
 });
+
+// Welcome Animation
+function showWelcomeAnimation() {
+    // Hide navbar initially
+    $('.navbar').css('opacity', '0');
+    
+    // Show welcome text with fade in
+    setTimeout(function() {
+        // After 3 seconds, fade in the navbar
+        $('.navbar').css({
+            'opacity': '1',
+            'transition': 'opacity 1s ease'
+        });
+        
+        // Initialize navigation after welcome
+        initNavigation();
+    }, 3000);
+}
 
 // Navigation functionality
 function initNavigation() {
@@ -35,12 +55,13 @@ function initNavigation() {
         $('.nav-menu').removeClass('active');
     });
 
-    // Navbar background on scroll
+    // Fixed navbar on scroll (like the code example)
     $(window).on('scroll', function() {
-        if ($(window).scrollTop() > 50) {
-            $('.navbar').addClass('scrolled');
+        let pos = $(window).scrollTop();
+        if (pos >= 100) {
+            $('.navbar').addClass('fxd-navbar');
         } else {
-            $('.navbar').removeClass('scrolled');
+            $('.navbar').removeClass('fxd-navbar');
         }
     });
 }
@@ -51,11 +72,28 @@ const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
 
 function initSlideshow() {
-    // Auto slide every 5 seconds
-    setInterval(nextSlide, 5000);
-    
     // Show first slide
     showSlide(currentSlideIndex);
+    
+    // Auto slide every 8 seconds (like the code example)
+    setInterval(function() {
+        hideAllSlides();
+        changeSlideCount();
+        showSlide(currentSlideIndex);
+    }, 8000);
+}
+
+function hideAllSlides() {
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+}
+
+function changeSlideCount() {
+    currentSlideIndex++;
+    if (currentSlideIndex >= totalSlides) {
+        currentSlideIndex = 0;
+    }
 }
 
 function changeSlide(direction) {
@@ -111,7 +149,7 @@ function initScrollEffects() {
     }, observerOptions);
 
     // Observe all elements with fade-in animation
-    document.querySelectorAll('.section-header, .chef-card, .seller-card').forEach(el => {
+    document.querySelectorAll('.section-header, .chef-card, .seller-card, .service-item').forEach(el => {
         observer.observe(el);
     });
 
