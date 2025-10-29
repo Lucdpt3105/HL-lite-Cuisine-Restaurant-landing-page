@@ -136,23 +136,23 @@ body {
   padding: 3rem;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  max-width: 800px;
-  width: 90%;
-  /* Fixed centering - prevent movement */
-  will-change: opacity;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active .slide-content {
+  opacity: 1;
 }
 
 .slide-content h1 {
   font-family: 'Rancho', cursive;
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  animation: fadeIn 1s ease;
 }
 
 .slide-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  animation: fadeIn 1s ease 0.3s both;
 }
 
 .cta-button {
@@ -164,7 +164,6 @@ body {
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: fadeIn 1s ease 0.6s both;
 }
 
 .cta-button:hover {
@@ -239,7 +238,7 @@ body {
 .section-header h2 {
   font-family: 'Rancho', cursive;
   font-size: 3rem;
-  color: #333;
+  color: #ffb485;
   margin-bottom: 0.5rem;
 }
 
@@ -267,7 +266,7 @@ body {
   background: white;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(255, 239, 117, 0.1);
   transition: all 0.4s ease;
   opacity: 0;
   transform: translateY(30px);
@@ -720,17 +719,6 @@ body {
 }
 
 /* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -749,14 +737,14 @@ body {
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
     --bg-card: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #666666;
+    --text-primary: #ffbb00;
+    --text-secondary: #ff8686;
     --text-muted: #999999;
     --border-color: #e0e0e0;
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-medium: rgba(0, 0, 0, 0.15);
     --shadow-heavy: rgba(0, 0, 0, 0.2);
-    --overlay-dark: rgba(0, 0, 0, 0.5);
+    --overlay-dark: rgba(149, 149, 149, 0.5);
     --accent-color: #e76f51;
     --accent-hover: #d35f41;
 }

@@ -92,12 +92,6 @@ function showSlide(index) {
         dot.classList.remove('active');
     });
     dots[index].classList.add('active');
-    
-    // Animate slide content
-    const slideContent = slides[index].querySelector('.slide-content');
-    slideContent.style.animation = 'none';
-    slideContent.offsetHeight; // Trigger reflow
-    slideContent.style.animation = 'fadeInUp 1s ease';
 }
 
 // Scroll effects and animations

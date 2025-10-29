@@ -1,4 +1,5 @@
-// Dark Mode Toggle Functionality
+// Dark Mode Toggle Functionality - TEMPORARILY DISABLED
+/*
 (function() {
     'use strict';
 
@@ -63,3 +64,4 @@
         }
     }
 })();
+*/
