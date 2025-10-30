@@ -305,14 +305,16 @@ function initEventsCarousel() {
 
     function showEvent(index) {
         eventCards.hide().removeClass('active');
-        eventCards.eq(index).fadeIn(500).addClass('active');
+        eventCards.eq(index).show().addClass('active');
     }
 
-    // Auto-rotate events every 4 seconds
+    // Auto-rotate disabled
+    /*
     setInterval(function() {
         currentEventIndex = (currentEventIndex + 1) % totalEvents;
         showEvent(currentEventIndex);
     }, 4000);
+    */
 }
 
 // Contact form functionality
