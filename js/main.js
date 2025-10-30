@@ -293,12 +293,14 @@ function initEventsCarousel() {
     // Show only first event initially
     showEvent(currentEventIndex);
 
-    $('.carousel-next').on('click', function() {
+    $('.carousel-next').on('click', function(e) {
+        e.stopPropagation();
         currentEventIndex = (currentEventIndex + 1) % totalEvents;
         showEvent(currentEventIndex);
     });
 
-    $('.carousel-prev').on('click', function() {
+    $('.carousel-prev').on('click', function(e) {
+        e.stopPropagation();
         currentEventIndex = (currentEventIndex - 1 + totalEvents) % totalEvents;
         showEvent(currentEventIndex);
     });
@@ -306,15 +308,90 @@ function initEventsCarousel() {
     function showEvent(index) {
         eventCards.hide().removeClass('active');
         eventCards.eq(index).show().addClass('active');
+        
+        // Lazy load video when shown
+        const video = eventCards.eq(index).find('.event-video')[0];
+        if (video && video.readyState === 0) {
+            video.load();
+        }
     }
 
-    // Auto-rotate disabled
-    /*
-    setInterval(function() {
-        currentEventIndex = (currentEventIndex + 1) % totalEvents;
-        showEvent(currentEventIndex);
-    }, 4000);
-    */
+    // Event modal functionality
+    eventCards.on('click', function() {
+        const eventId = $(this).data('event');
+        const modal = $('#eventModal' + eventId);
+        const modalVideo = modal.find('.modal-video')[0];
+        
+        // Show modal with animation
+        modal.addClass('show');
+        $('body').css('overflow', 'hidden');
+        
+        // Load and play video
+        if (modalVideo) {
+            modalVideo.load();
+            modalVideo.play().catch(err => console.log('Video play failed:', err));
+        }
+        
+        // Reset text animations
+        modal.find('.modal-title, .modal-date, .modal-description').css('animation', 'none');
+        setTimeout(() => {
+            modal.find('.modal-title, .modal-date, .modal-description').css('animation', '');
+        }, 10);
+    });
+
+    // Close modal functionality
+    $('.modal-close').on('click', function() {
+        closeModal($(this).closest('.event-modal'));
+    });
+
+    // Close on outside click
+    $('.event-modal').on('click', function(e) {
+        if (e.target === this) {
+            closeModal($(this));
+        }
+    });
+
+    // Close on ESC key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+            $('.event-modal.show').each(function() {
+                closeModal($(this));
+            });
+        }
+    });
+
+    function closeModal(modal) {
+        const modalVideo = modal.find('.modal-video')[0];
+        if (modalVideo) {
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+        }
+        modal.removeClass('show');
+        $('body').css('overflow', '');
+    }
+
+    // Intersection Observer for lazy loading videos
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                if (video.readyState === 0) {
+                    video.load();
+                }
+                video.play().catch(err => console.log('Autoplay prevented'));
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observe all event videos
+    eventCards.each(function() {
+        const video = $(this).find('.event-video')[0];
+        if (video) {
+            videoObserver.observe(video);
+        }
+    });
 }
 
 // Contact form functionality

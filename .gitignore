@@ -1,0 +1,37 @@
+# Compressed files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Font folders (local only)
+Bellagia Display/
+**/Bellagia Display/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
