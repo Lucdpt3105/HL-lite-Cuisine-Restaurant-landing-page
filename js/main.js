@@ -77,16 +77,9 @@ function initSlideshow() {
     
     // Auto slide every 8 seconds (like the code example)
     setInterval(function() {
-        hideAllSlides();
         changeSlideCount();
         showSlide(currentSlideIndex);
     }, 8000);
-}
-
-function hideAllSlides() {
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-    });
 }
 
 function changeSlideCount() {
@@ -116,20 +109,32 @@ function nextSlide() {
 }
 
 function showSlide(index) {
-    // Hide all slides
-    slides.forEach(slide => {
-        slide.classList.remove('active');
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+    slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === index;
+        slide.classList.toggle('active', isActive);
+
+        const slideImage = slide.querySelector('img');
+        if (slideImage && !isActive) {
+            slideImage.style.transform = 'translateY(0)';
+        }
     });
     
-    // Show current slide
-    slides[index].classList.add('active');
+    applyHeroParallax(scrollTop);
     
-    // Update dots
     const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => {
-        dot.classList.remove('active');
+    dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === index);
     });
-    dots[index].classList.add('active');
+}
+
+function applyHeroParallax(scrollTop) {
+    const rate = scrollTop * -0.5;
+    const activeSlideImage = document.querySelector('.hero .slide.active img');
+    if (activeSlideImage) {
+        activeSlideImage.style.transform = `translateY(${rate}px)`;
+    }
 }
 
 // Scroll effects and animations
@@ -153,12 +158,23 @@ function initScrollEffects() {
         observer.observe(el);
     });
 
-    // Parallax effect for hero section
+    // Parallax effect for hero section with requestAnimationFrame
+    let latestScroll = $(window).scrollTop();
+    let ticking = false;
+
     $(window).on('scroll', function() {
-        const scrolled = $(window).scrollTop();
-        const rate = scrolled * -0.5;
-        $('.hero .slide.active img').css('transform', `translateY(${rate}px)`);
+        latestScroll = $(window).scrollTop();
+
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                applyHeroParallax(latestScroll);
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
+
+    applyHeroParallax(latestScroll);
 }
 
 // Top Sellers functionality
@@ -526,6 +542,9 @@ function preloadImages() {
         './images/image1.png',
         './images/image2.png',
         './images/image3.png',
+        './images/image3.jpeg',
+        './images/food-dinner.jpg',
+        './images/banner-bg-1.jpg',
         './images/image10.png',
         './images/image15.png',
         './images/image20.jpeg',
