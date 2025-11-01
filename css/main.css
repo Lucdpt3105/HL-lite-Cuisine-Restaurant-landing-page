@@ -2291,6 +2291,51 @@ p {
   box-shadow: 0 8px 20px rgba(231, 111, 81, 0.4);
 }
 
+/* ========== WELCOME BADGE ========== */
+.welcome-badge {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  z-index: 9998;
+  background: linear-gradient(135deg, #e76f51 0%, #f4a261 100%);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(231, 111, 81, 0.4);
+  animation: slideInRight 0.5s ease both;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.welcome-badge.hidden {
+  display: none;
+}
+
+.welcome-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+#guestDisplayName {
+  font-weight: 700;
+  color: #fff;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* ========== FLOATING CART ========== */
 .floating-cart {
   position: fixed;
@@ -2530,6 +2575,16 @@ p {
 @media (max-width: 768px) {
   .guest-modal-title {
     font-size: 1.8rem;
+  }
+  
+  .welcome-badge {
+    top: 80px;
+    right: 15px;
+    padding: 0.6rem 1rem;
+  }
+  
+  .welcome-text {
+    font-size: 0.9rem;
   }
   
   .floating-cart {

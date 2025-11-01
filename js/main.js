@@ -642,6 +642,8 @@ function initBookingSystem() {
         if (savedName) {
             guestName = savedName;
             $('#guestNameModal').addClass('hidden');
+            // Show welcome badge if guest name exists
+            showWelcomeBadge(savedName);
         } else {
             // Wait for preloader to finish (3s animation + 0.5s fade out)
             setTimeout(() => {
@@ -649,6 +651,15 @@ function initBookingSystem() {
                 $('body').css('overflow', 'hidden');
             }, 3500);
         }
+    }
+    
+    // Show welcome badge with guest name
+    function showWelcomeBadge(name) {
+        const firstName = name.split(' ')[0]; // Get first name only
+        $('#guestDisplayName').text(firstName);
+        setTimeout(() => {
+            $('#welcomeBadge').removeClass('hidden');
+        }, 3500);
     }
     
     // Initialize - show guest modal after page loads
@@ -662,6 +673,9 @@ function initBookingSystem() {
             localStorage.setItem('guestName', guestName);
             $('#guestNameModal').addClass('hidden');
             $('body').css('overflow', '');
+            
+            // Show welcome badge
+            showWelcomeBadge(guestName);
             
             // Show welcome message
             setTimeout(() => {
