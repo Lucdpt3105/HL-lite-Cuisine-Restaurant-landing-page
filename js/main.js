@@ -1,5 +1,8 @@
 // DOM Ready
 $(document).ready(function() {
+    // Show preloader first
+    initPreloader();
+    
     // Show welcome animation first, then initialize components
     showWelcomeAnimation();
     
@@ -10,7 +13,20 @@ $(document).ready(function() {
     initMenuEffects();
     initEventsCarousel();
     initContactForm();
+    initBookingSystem();
 });
+
+// Preloader
+function initPreloader() {
+    $(window).on('load', function() {
+        setTimeout(function() {
+            $('#preloader').addClass('fade-out');
+            setTimeout(function() {
+                $('#preloader').remove();
+            }, 500);
+        }, 2000); // Show logo for 2 seconds minimum
+    });
+}
 
 // Welcome Animation
 function showWelcomeAnimation() {
@@ -613,3 +629,407 @@ $(document).on('mouseenter', '.scroll-top', function() {
         'background': '#e76f51'
     });
 });
+
+// ========== BOOKING SYSTEM ==========
+function initBookingSystem() {
+    let cart = [];
+    let guestName = '';
+    let bookingType = '';
+    
+    // Show guest name modal after preloader finishes
+    function showGuestNameModal() {
+        const savedName = localStorage.getItem('guestName');
+        if (savedName) {
+            guestName = savedName;
+            $('#guestNameModal').addClass('hidden');
+        } else {
+            // Wait for preloader to finish (3s animation + 0.5s fade out)
+            setTimeout(() => {
+                $('#guestNameModal').removeClass('hidden');
+                $('body').css('overflow', 'hidden');
+            }, 3500);
+        }
+    }
+    
+    // Initialize - show guest modal after page loads
+    showGuestNameModal();
+    
+    // Guest name form submission
+    $('#guestNameForm').on('submit', function(e) {
+        e.preventDefault();
+        guestName = $('#guestName').val().trim();
+        if (guestName) {
+            localStorage.setItem('guestName', guestName);
+            $('#guestNameModal').addClass('hidden');
+            $('body').css('overflow', '');
+            
+            // Show welcome message
+            setTimeout(() => {
+                alert(`Welcome, ${guestName}! You can now browse our menu and add items to your cart.`);
+            }, 300);
+        }
+    });
+    
+    // Open booking modal
+    function openBookingModal() {
+        if (!guestName) {
+            alert('Please enter your name first to continue.');
+            $('#guestNameModal').removeClass('hidden');
+            return;
+        }
+        $('#bookingOptionsModal').addClass('show');
+        $('body').css('overflow', 'hidden');
+    }
+    
+    // Open booking from buttons
+    $('.cta-button, .open-booking-btn').on('click', function(e) {
+        e.preventDefault();
+        openBookingModal();
+    });
+    
+    // Booking option selection
+    $('.booking-option-btn').on('click', function() {
+        bookingType = $(this).data('type');
+        $('#bookingOptionsModal').removeClass('show');
+        
+        if (bookingType === 'seats-only') {
+            // Go directly to booking form
+            setTimeout(() => {
+                $('#bookingFormModal').addClass('show');
+            }, 300);
+        } else if (bookingType === 'seats-with-food' || bookingType === 'celebration') {
+            // Both go to food selection (celebration also includes food)
+            setTimeout(() => {
+                $('#bookingFoodModal').addClass('show');
+            }, 300);
+        }
+    });
+    
+    // Close modal handlers
+    $('.booking-modal-close').on('click', function() {
+        closeAllModals();
+    });
+    
+    $('.booking-modal').on('click', function(e) {
+        if (e.target === this) {
+            closeAllModals();
+        }
+    });
+    
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
+    });
+    
+    function closeAllModals() {
+        $('.booking-modal').removeClass('show');
+        $('body').css('overflow', '');
+    }
+    
+    // Floating cart button click
+    $('.cart-btn').on('click', function() {
+        if (!guestName) {
+            alert('Please enter your name first to view your cart.');
+            $('#guestNameModal').removeClass('hidden');
+            return;
+        }
+        
+        updateCartModal();
+        $('#cartModal').addClass('show');
+        $('body').css('overflow', 'hidden');
+    });
+    
+    // Cart modal "Book Now" button
+    $('.book-from-cart-btn').on('click', function() {
+        if (cart.length === 0) {
+            alert('Your cart is empty. Please add items before booking.');
+            return;
+        }
+        
+        $('#cartModal').removeClass('show');
+        
+        // Show booking form with final step
+        setTimeout(() => {
+            $('#bookingFinalModal').addClass('show');
+        }, 300);
+    });
+    
+    // Add to cart from menu
+    $('.menu-order-btn, .order-btn').on('click', function(e) {
+        e.preventDefault();
+        if (!guestName) {
+            alert('Please enter your name first to add items to cart.');
+            $('#guestNameModal').removeClass('hidden');
+            return;
+        }
+        
+        const menuItem = $(this).closest('.menu-item, .seller-card');
+        const name = menuItem.find('h4, h3').first().text().trim();
+        const priceText = menuItem.find('.price').text().replace('$', '');
+        const price = parseFloat(priceText);
+        
+        addToCart(name, price);
+        
+        // Visual feedback
+        const originalText = $(this).text();
+        $(this).text('Added! ✓').css('background', '#28a745');
+        setTimeout(() => {
+            $(this).text(originalText).css('background', '');
+        }, 1000);
+    });
+    
+    // Add to cart from food modal
+    $('.add-to-cart-btn').on('click', function() {
+        const foodItem = $(this).closest('.food-item');
+        const name = foodItem.data('name');
+        const price = parseFloat(foodItem.data('price'));
+        
+        addToCart(name, price);
+        
+        // Visual feedback
+        $(this).text('✓').css('background', '#28a745');
+        setTimeout(() => {
+            $(this).text('+').css('background', '#e76f51');
+        }, 500);
+    });
+    
+    function addToCart(name, price) {
+        // Check if item already in cart
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+        }
+        
+        updateCart();
+        updateFloatingCart();
+    }
+    
+    function updateCart() {
+        const cartItemsContainer = $('#cartItems');
+        cartItemsContainer.empty();
+        
+        if (cart.length === 0) {
+            cartItemsContainer.html('<p style="text-align: center; color: #999; padding: 2rem;">Cart is empty</p>');
+        } else {
+            cart.forEach((item, index) => {
+                const cartItemHtml = `
+                    <div class="cart-item">
+                        <span class="cart-item-name">${item.name}</span>
+                        <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+                        <div class="cart-item-qty">
+                            <button class="cart-qty-btn minus-btn" data-index="${index}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="cart-qty-btn plus-btn" data-index="${index}">+</button>
+                            <button class="cart-qty-btn remove-btn" data-index="${index}">🗑</button>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.append(cartItemHtml);
+            });
+        }
+        
+        updateCartSummary();
+    }
+    
+    // Cart quantity controls
+    $(document).on('click', '.plus-btn', function() {
+        const index = $(this).data('index');
+        cart[index].quantity++;
+        updateCart();
+    });
+    
+    $(document).on('click', '.minus-btn', function() {
+        const index = $(this).data('index');
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            cart.splice(index, 1);
+        }
+        updateCart();
+    });
+    
+    $(document).on('click', '.remove-btn', function() {
+        const index = $(this).data('index');
+        cart.splice(index, 1);
+        updateCart();
+    });
+    
+    function updateCartSummary() {
+        let subtotal = 0;
+        cart.forEach(item => {
+            subtotal += item.price * item.quantity;
+        });
+        
+        const roundOff = Math.ceil(subtotal) - subtotal;
+        const total = Math.ceil(subtotal);
+        
+        $('#cartSubtotal').text('$' + subtotal.toFixed(2));
+        $('#cartRoundOff').text('$' + roundOff.toFixed(2));
+        $('#cartTotal').text('$' + total.toFixed(2));
+        
+        updateFloatingCart();
+    }
+    
+    function updateCartModal() {
+        const cartModalItems = $('#cartModalItems');
+        const cartModalSubtotal = $('#cartModalSubtotal');
+        const cartModalTotal = $('#cartModalTotal');
+        
+        cartModalItems.empty();
+        
+        if (cart.length === 0) {
+            cartModalItems.html('<p style="text-align: center; color: #999; padding: 40px;">Your cart is empty. Browse our menu to add items!</p>');
+            cartModalSubtotal.text('$0.00');
+            cartModalTotal.text('$0.00');
+            return;
+        }
+        
+        let subtotal = 0;
+        
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            
+            const cartItemHtml = `
+                <div class="cart-modal-item">
+                    <div class="cart-modal-item-info">
+                        <span class="cart-modal-item-name">${item.name}</span>
+                        <span class="cart-modal-item-price">$${item.price.toFixed(2)} each</span>
+                    </div>
+                    <div class="cart-modal-item-controls">
+                        <button class="cart-modal-qty-btn minus" data-index="${index}">-</button>
+                        <span class="cart-modal-qty">${item.quantity}</span>
+                        <button class="cart-modal-qty-btn plus" data-index="${index}">+</button>
+                        <button class="cart-modal-remove-btn" data-index="${index}">🗑️</button>
+                    </div>
+                    <div class="cart-modal-item-total">$${itemTotal.toFixed(2)}</div>
+                </div>
+            `;
+            
+            cartModalItems.append(cartItemHtml);
+        });
+        
+        cartModalSubtotal.text('$' + subtotal.toFixed(2));
+        cartModalTotal.text('$' + subtotal.toFixed(2));
+    }
+    
+    function updateFloatingCart() {
+        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+        $('.cart-count').text(cartCount);
+        
+        if (cartCount > 0) {
+            $('.cart-count').fadeIn();
+        } else {
+            $('.cart-count').fadeOut();
+        }
+    }
+    
+    // Cart modal quantity controls
+    $(document).on('click', '.cart-modal-qty-btn.plus', function() {
+        const index = $(this).data('index');
+        cart[index].quantity++;
+        updateCart();
+        updateCartModal();
+    });
+    
+    $(document).on('click', '.cart-modal-qty-btn.minus', function() {
+        const index = $(this).data('index');
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            cart.splice(index, 1);
+        }
+        updateCart();
+        updateCartModal();
+    });
+    
+    $(document).on('click', '.cart-modal-remove-btn', function() {
+        const index = $(this).data('index');
+        cart.splice(index, 1);
+        updateCart();
+        updateCartModal();
+    });
+    
+    // Payment buttons
+    $('.payment-btn').on('click', function() {
+        const paymentType = $(this).text();
+        alert(`Payment method selected: ${paymentType}\nTotal: ${$('#cartTotal').text()}\n\nProceeding to booking form...`);
+        
+        // Close food modal and open booking form
+        $('#bookingFoodModal').removeClass('show');
+        setTimeout(() => {
+            $('#bookingFormModal').addClass('show');
+        }, 300);
+    });
+    
+    // Complete booking from food modal
+    $('.booking-complete-btn').on('click', function() {
+        if (cart.length === 0) {
+            alert('Please add items to cart before completing booking.');
+            return;
+        }
+        
+        // Close food modal and open booking form
+        $('#bookingFoodModal').removeClass('show');
+        setTimeout(() => {
+            $('#bookingFormModal').addClass('show');
+        }, 300);
+    });
+    
+    // Booking form submission
+    $('#bookingForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            date: $('#bookingDate').val(),
+            time: $('#bookingTime').val(),
+            people: $('#numberOfPeople').val(),
+            firstName: $('#firstName').val(),
+            lastName: $('#lastName').val(),
+            email: $('#bookingEmail').val(),
+            phone: $('#bookingPhone').val(),
+            instructions: $('#specialInstructions').val(),
+            bookingType: bookingType,
+            cart: cart
+        };
+        
+        console.log('Booking submitted:', formData);
+        
+        // Show confirmation message
+        alert('Reservation confirmed!\nYou will receive a confirmation email shortly.\n\nThank you for choosing Élite Cuisine Restaurant!');
+        
+        // Close form and show success modal
+        $('#bookingFormModal').removeClass('show');
+        setTimeout(() => {
+            $('#bookingSuccessModal').addClass('show');
+        }, 300);
+        
+        // Reset form and cart
+        this.reset();
+        cart = [];
+        updateCart();
+    });
+    
+    // Success modal Thank You button
+    $('.success-btn').on('click', function() {
+        closeAllModals();
+        // Scroll to top
+        $('html, body').animate({scrollTop: 0}, 1000);
+    });
+    
+    // Return to home page button
+    $('.success-btn').on('click', function() {
+        closeAllModals();
+        $('html, body').animate({scrollTop: 0}, 1000);
+    });
+}
+

@@ -11,9 +11,45 @@
     <link href="./css/main.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Élite Cuisine Restaurant - Fine Dining Experience</title>
+    <link rel="icon" type="png" href="images\logo-png.png" />
+
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-logo">
+            <h1>Élite Cuisine</h1>
+            <p>Restaurant</p>
+        </div>
+    </div>
+
+    <!-- Guest Name Modal (First Time) -->
+    <div id="guestNameModal" class="guest-modal">
+        <div class="guest-modal-content">
+            <h2 class="guest-modal-title">Welcome to Élite Cuisine</h2>
+            <p class="guest-modal-subtitle">Please enter your name to continue</p>
+            <form id="guestNameForm" class="guest-form">
+                <div class="form-group">
+                    <input type="text" id="guestName" name="guestName" placeholder="Your Name" required autocomplete="off">
+                </div>
+                <button type="submit" class="guest-submit-btn">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <div id="floatingCart" class="floating-cart">
+        <button class="cart-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-count">0</span>
+        </button>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -321,6 +357,42 @@
                         <button class="order-btn">Order Now</button>
                     </div>
                 </div>
+                <div class="seller-card fade-in">
+                    <div class="seller-badge">🌶️ Spicy Special</div>
+                    <div class="seller-image">
+                        <img src="https://i.pinimg.com/1200x/f3/bb/57/f3bb577112e29ba59c4f44507898b26e.jpg" alt="Pav Bhaji">
+                    </div>
+                    <div class="seller-info">
+                        <h3>Pav Bhaji</h3>
+                        <p>Authentic Mumbai street food with spiced mashed vegetables and buttered pav</p>
+                        <div class="seller-details">
+                            <span class="price">$18</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">(4.8/5)</span>
+                            </div>
+                        </div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="seller-card fade-in">
+                    <div class="seller-badge">🥟 Classic</div>
+                    <div class="seller-image">
+                        <img src="https://i.pinimg.com/1200x/6e/94/33/6e94333a677c9b292a9ae14221b13dfa.jpg" alt="Mughlai Samosa">
+                    </div>
+                    <div class="seller-info">
+                        <h3>Mughlai Samosa</h3>
+                        <p>Crispy pastry filled with spiced potatoes, peas, and aromatic herbs</p>
+                        <div class="seller-details">
+                            <span class="price">$12</span>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">(4.6/5)</span>
+                            </div>
+                        </div>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -574,77 +646,43 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Make a Reservation</h2>
-                <p>Contact Us</p>
+                <h2>Contact Information</h2>
+                <p>Get in Touch</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Fine Dining Street<br>Downtown, City Center</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@deluxerestaurant.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
-                        <div>
-                            <h4>Hours</h4>
-                            <p>Mon-Thu: 11:00 AM - 10:00 PM<br>
-                                Fri-Sat: 11:00 AM - 11:00 PM<br>
-                                Sun: 10:00 AM - 9:00 PM</p>
-                        </div>
+            <div class="contact-info-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Address</h4>
+                        <p>123 Fine Dining Street<br>Downtown, City Center</p>
                     </div>
                 </div>
-                <div class="reservation-form">
-                    <form id="reservationForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="time" id="time" name="time" required>
-                        </div>
-                        <div class="form-group">
-                            <select id="guests" name="guests" required>
-                                <option value="">Number of Guests</option>
-                                <option value="1">1 Guest</option>
-                                <option value="2">2 Guests</option>
-                                <option value="3">3 Guests</option>
-                                <option value="4">4 Guests</option>
-                                <option value="5">5 Guests</option>
-                                <option value="6">6+ Guests</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Special Requests (Optional)"
-                                rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Make Reservation</button>
-                    </form>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
                 </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@elitecuisine.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <h4>Hours</h4>
+                        <p>Mon-Thu: 11:00 AM - 10:00 PM<br>
+                            Fri-Sat: 11:00 AM - 11:00 PM<br>
+                            Sun: 10:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reservation-cta">
+                <button class="open-booking-btn">Make a Reservation</button>
             </div>
         </div>
     </section>
@@ -682,6 +720,188 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="booking-modal cart-modal">
+        <div class="booking-modal-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">Your Cart</h2>
+            <div id="cartModalItems" class="cart-modal-items"></div>
+            <div class="cart-modal-summary">
+                <div class="cart-row">
+                    <span>Subtotal</span>
+                    <span id="cartModalSubtotal">$0.00</span>
+                </div>
+                <div class="cart-row cart-total">
+                    <span>Total</span>
+                    <span id="cartModalTotal">$0.00</span>
+                </div>
+            </div>
+            <button class="booking-submit-btn book-now-btn">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Booking Options Modal -->
+    <div id="bookingOptionsModal" class="booking-modal">
+        <div class="booking-modal-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">BOOKING</h2>
+            <div class="booking-options">
+                <button class="booking-option-btn" data-type="seats-only">
+                    <span class="booking-icon">🪑</span>
+                    Reservation for Seats
+                </button>
+                <button class="booking-option-btn" data-type="seats-with-food">
+                    <span class="booking-icon">🍽️</span>
+                    Reservation for Seats With Food
+                </button>
+                <button class="booking-option-btn" data-type="celebration">
+                    <span class="booking-icon">🎉</span>
+                    Reservation for Celebration
+                </button>
+            </div>
+            <div class="booking-social-links">
+                <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/></svg></a>
+                <a href="#" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.505 4.505 0 0 0 12 8.5zm6.5-2a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Form Modal -->
+    <div id="bookingFormModal" class="booking-modal">
+        <div class="booking-modal-content booking-form-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">BOOKING</h2>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingDate">Date</label>
+                        <input type="date" id="bookingDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime">Time</label>
+                        <input type="time" id="bookingTime" name="time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberOfPeople">Number of People <span class="form-hint">(Number of Peoples are Limited to 10 Peoples)</span></label>
+                    <input type="number" id="numberOfPeople" name="people" min="1" max="10" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingEmail">Email</label>
+                        <input type="email" id="bookingEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingPhone">Phone</label>
+                        <input type="tel" id="bookingPhone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="specialInstructions">Special Instruction</label>
+                    <textarea id="specialInstructions" name="instructions" rows="4"></textarea>
+                </div>
+                <button type="submit" class="booking-submit-btn">Complete Your Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking with Food Modal -->
+    <div id="bookingFoodModal" class="booking-modal">
+        <div class="booking-modal-content booking-food-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">BOOKING</h2>
+            <div class="booking-food-layout">
+                <div class="food-menu-section">
+                    <h3>Select Your Food</h3>
+                    <div class="food-menu-list">
+                        <div class="food-item" data-name="Pav Bhaji" data-price="7.99">
+                            <span class="food-name">Pav Bhaji</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Mughlai Samosa" data-price="7.99">
+                            <span class="food-name">Mughlai Samosa</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Aloo Papdi Chaat" data-price="7.99">
+                            <span class="food-name">Aloo Papdi Chaat</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Karif Bonda" data-price="7.99">
+                            <span class="food-name">Karif Bonda</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Matar Karanji" data-price="7.99">
+                            <span class="food-name">Matar Karanji</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Tikka Bun" data-price="7.99">
+                            <span class="food-name">Tikka Bun</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-section">
+                    <h3>Cart</h3>
+                    <div id="cartItems" class="cart-items"></div>
+                    <div class="cart-summary">
+                        <div class="cart-row">
+                            <span>Cost of Food</span>
+                            <span id="cartSubtotal">$0.00</span>
+                        </div>
+                        <div class="cart-row">
+                            <span>Round Off</span>
+                            <span id="cartRoundOff">$0.00</span>
+                        </div>
+                        <div class="cart-row cart-total">
+                            <span>Total Cost</span>
+                            <span id="cartTotal">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="cart-payment-options">
+                        <button class="payment-btn">Pay At Restaurant</button>
+                        <button class="payment-btn">Pay In Advance</button>
+                    </div>
+                </div>
+            </div>
+            <button class="booking-complete-btn">Complete Your Booking</button>
+        </div>
+    </div>
+
+    <!-- Booking Success Modal -->
+    <div id="bookingSuccessModal" class="booking-modal">
+        <div class="booking-modal-content booking-success-content">
+            <h1 class="success-title">Thank You For Making Us A Part Of You Joy's Day</h1>
+            <p class="success-message">Please Note That We Take Your Special Day As Our Own We Believe Taking To Us Will Be Best For Your Celebration Arrangement</p>
+            <div class="success-contact">
+                <p><strong>Email</strong> - booknow.res.gmail.com</p>
+                <p><strong>Phone</strong> - +444-9999-66666</p>
+            </div>
+            <button class="success-btn">Thank You</button>
+            <div class="booking-social-links">
+                <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/></svg></a>
+                <a href="#" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.505 4.505 0 0 0 12 8.5zm6.5-2a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
+            </div>
+        </div>
+    </div>
 
     <script src="./js/main.js"></script>
     <script src="./js/dark.js"></script>
