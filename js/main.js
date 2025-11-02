@@ -418,80 +418,36 @@ function initEventsCarousel() {
 
     function showEvent(index) {
         eventCards.hide().removeClass('active');
-        eventCards.eq(index).show().addClass('active');
         
-        // Lazy load video when shown
-        const video = eventCards.eq(index).find('.event-video')[0];
-        if (video && video.readyState === 0) {
-            video.load();
+        const eventToShow = eventCards.eq(index);
+        eventToShow.show().addClass('active');
+        
+        // Play video
+        const video = eventToShow.find('.event-video')[0];
+        if (video) {
+            video.play().catch(err => console.log('Video play failed:', err));
         }
+        
+        // Restart animations
+        restartAnimations(eventToShow);
     }
 
-    // Event modal functionality
-    eventCards.on('click', function() {
-        const eventId = $(this).data('event');
-        const modal = $('#eventModal' + eventId);
-        const modalVideo = modal.find('.modal-video')[0];
-        
-        // Show modal with animation
-        modal.addClass('show');
-        $('body').css('overflow', 'hidden');
-        
-        // Load and play video
-        if (modalVideo) {
-            modalVideo.load();
-            modalVideo.play().catch(err => console.log('Video play failed:', err));
-        }
-        
-        // Reset text animations
-        modal.find('.modal-title, .modal-date, .modal-description').css('animation', 'none');
+    function restartAnimations(card) {
+        const animatedElements = card.find('.event-category-badge, .event-title, .event-date-text, .event-description, .event-booking-btn');
+        animatedElements.css('animation', 'none');
         setTimeout(() => {
-            modal.find('.modal-title, .modal-date, .modal-description').css('animation', '');
+            animatedElements.css('animation', '');
         }, 10);
-    });
-
-    // Close modal functionality
-    $('.modal-close').on('click', function() {
-        closeModal($(this).closest('.event-modal'));
-    });
-
-    // Close on outside click
-    $('.event-modal').on('click', function(e) {
-        if (e.target === this) {
-            closeModal($(this));
-        }
-    });
-
-    // Close on ESC key
-    $(document).on('keydown', function(e) {
-        if (e.key === 'Escape') {
-            $('.event-modal.show').each(function() {
-                closeModal($(this));
-            });
-        }
-    });
-
-    function closeModal(modal) {
-        const modalVideo = modal.find('.modal-video')[0];
-        if (modalVideo) {
-            modalVideo.pause();
-            modalVideo.currentTime = 0;
-        }
-        modal.removeClass('show');
-        $('body').css('overflow', '');
     }
 
-    // Intersection Observer for lazy loading videos
+    // Intersection Observer for video management
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const video = entry.target;
             if (entry.isIntersecting) {
-                const video = entry.target;
-                if (video.readyState === 0) {
-                    video.load();
-                }
                 video.play().catch(err => console.log('Autoplay prevented'));
             } else {
-                entry.target.pause();
+                video.pause();
             }
         });
     }, { threshold: 0.5 });
@@ -834,7 +790,7 @@ function initBookingSystem() {
     });
     
     // Cart modal "Book Now" button
-    $('.book-from-cart-btn').on('click', function() {
+    $('.book-from-cart-btn, .book-now-btn').on('click', function() {
         if (cart.length === 0) {
             alert('Your cart is empty. Please add items before booking.');
             return;
@@ -842,9 +798,9 @@ function initBookingSystem() {
         
         $('#cartModal').removeClass('show');
         
-        // Show booking form with final step
+        // Show booking food modal (seats with food)
         setTimeout(() => {
-            $('#bookingFinalModal').addClass('show');
+            $('#bookingFoodModal').addClass('show');
         }, 300);
     });
     

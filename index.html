@@ -167,7 +167,6 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-item fade-in birthday-bg">
-                        <span class="service-icon">🎂</span>
                         <h3>Birthday Celebrations</h3>
                         <p class="text">Make your special day unforgettable with our customized birthday packages. We
                             offer personalized menus, decorated dining areas, and dedicated staff to ensure your
@@ -175,13 +174,11 @@
                             with care.</p>
                     </div>
                     <div class="service-item fade-in wedding-bg">
-                        <span class="service-icon">💍</span>
                         <h3>Wedding Events</h3>
                         <p class="text">Celebrate your big day in elegance. Our team creates beautiful setups with
                             exquisite cuisine and décor that reflect your style and love story.</p>
                     </div>
                     <div class="service-item fade-in dinner-bg">
-                        <span class="service-icon">🍷</span>
                         <h3>Private Dinners</h3>
                         <p class="text">Enjoy a cozy dinner with loved ones. Choose from our exclusive chef's menu and
                             let us create a memorable evening just for you.</p>
@@ -566,38 +563,73 @@
                 <h2>Upcoming Events</h2>
                 <p>Special Occasions</p>
             </div>
+
             <div class="events-carousel">
-                <div class="event-card" data-event="1">
-                    <video class="event-video" loop muted playsinline preload="none" poster="">
+                <div class="event-card" data-event="1" data-category="business" data-date="2025-12-15T19:00:00">
+                    <div class="event-video-container">
+                        <video class="event-video" loop muted playsinline autoplay>
                         <source src="images\event01.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="event-info">
-                        <h3>Wine Tasting Night</h3>
-                        <p class="event-date">December 15, 2025</p>
-                        <p>Join us for an exclusive wine tasting featuring premium selections</p>
+                        
+                        <div class="event-overlay">
+                            <span class="event-category-badge">Business Event</span>
+                            <h3 class="event-title">Wine Tasting Night</h3>
+                            <p class="event-date-text">December 15, 2025 • 7:00 PM</p>
+                            
+                            <p class="event-description">Join us for an exclusive evening of fine wine tasting featuring premium selections from renowned vineyards around the world. Our sommelier will guide you through each pairing.</p>
+                            <a href="https://www.facebook.com/anhluc.phung.7/" target="_blank" rel="noopener noreferrer" class="event-booking-btn">
+                                Visit Our Page on 
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-left: 5px;">
+                                    <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/>
+                                </svg>
+                            </a>
                     </div>
                 </div>
-                <div class="event-card" data-event="2">
-                    <video class="event-video" loop muted playsinline preload="none" poster="">
+                </div>
+                
+                <div class="event-card" data-event="2" data-category="private" data-date="2025-12-22T18:30:00">
+                    <div class="event-video-container">
+                        <video class="event-video" loop muted playsinline autoplay>
                         <source src="images/event02.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="event-info">
-                        <h3>Chef's Table Experience</h3>
-                        <p class="event-date">December 22, 2025</p>
-                        <p>An intimate dining experience with our head chef</p>
+                        
+                        <div class="event-overlay">
+                            <span class="event-category-badge">Private Dining</span>
+                            <h3 class="event-title">Chef's Table Experience</h3>
+                            <p class="event-date-text">December 22, 2025 • 6:30 PM</p>
+                            
+                            <p class="event-description">An intimate dining experience where our head chef prepares a multi-course tasting menu right before your eyes. Limited seating available for this exclusive culinary journey.</p>
+                            <a href="https://www.facebook.com/anhluc.phung.7/" target="_blank" rel="noopener noreferrer" class="event-booking-btn">
+                                Visit Our Page on 
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-left: 5px;">
+                                    <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/>
+                                </svg>
+                            </a>
                     </div>
                 </div>
-                <div class="event-card" data-event="3">
-                    <video class="event-video" loop muted playsinline preload="none" poster="">
+                </div>
+                
+                <div class="event-card" data-event="3" data-category="wedding" data-date="2025-12-24T17:00:00">
+                    <div class="event-video-container">
+                        <video class="event-video" loop muted playsinline autoplay>
                         <source src="images/event03.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="event-info">
-                        <h3>Holiday Special Menu</h3>
-                        <p class="event-date">December 24-31, 2025</p>
-                        <p>Celebrate the holidays with our specially crafted festive menu</p>
+                        
+                        <div class="event-overlay">
+                            <span class="event-category-badge">Wedding Event</span>
+                            <h3 class="event-title">Holiday Special Menu</h3>
+                            <p class="event-date-text">December 24-31, 2025</p>
+                            
+                            <p class="event-description">Celebrate the holiday season with our specially crafted festive menu. Featuring seasonal ingredients and traditional dishes with a modern twist, perfect for family gatherings.</p>
+                            <a href="https://www.facebook.com/anhluc.phung.7/" target="_blank" rel="noopener noreferrer" class="event-booking-btn">
+                                Visit Our Page on 
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-left: 5px;">
+                                    <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/>
+                                </svg>
+                            </a>
                     </div>
                 </div>
             </div>
@@ -839,36 +871,38 @@
             <h2 class="booking-modal-title">BOOKING</h2>
             <div class="booking-food-layout">
                 <div class="food-menu-section">
-                    <h3>Select Your Food</h3>
+                    <h3>Care for another serving ?</h3>
                     <div class="food-menu-list">
                         <div class="food-item" data-name="Pav Bhaji" data-price="7.99">
-                            <span class="food-name">Pav Bhaji</span>
-                            <span class="food-price">$7.99</span>
+                            <span class="food-name">Caramelized Clay Pot Pork </span>
+                            <!-- (Thịt Kho Tộ) -->
+                            <span class="food-price">$8.99</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                         <div class="food-item" data-name="Mughlai Samosa" data-price="7.99">
-                            <span class="food-name">Mughlai Samosa</span>
-                            <span class="food-price">$7.99</span>
+                            <span class="food-name">Hanoi Grilled Fish with Dill & Turmeric </span>
+                            <!-- (Chả Cá Lã Vọng) -->
+                            <span class="food-price">$10.99</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                         <div class="food-item" data-name="Aloo Papdi Chaat" data-price="7.99">
-                            <span class="food-name">Aloo Papdi Chaat</span>
+                            <span class="food-name">Imperial Hue Beef Noodle Soup</span>
                             <span class="food-price">$7.99</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                         <div class="food-item" data-name="Karif Bonda" data-price="7.99">
-                            <span class="food-name">Karif Bonda</span>
-                            <span class="food-price">$7.99</span>
+                            <span class="food-name">Saigon Crispy Spring Rolls</span>
+                            <span class="food-price">$6.99</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                         <div class="food-item" data-name="Matar Karanji" data-price="7.99">
-                            <span class="food-name">Matar Karanji</span>
-                            <span class="food-price">$7.99</span>
+                            <span class="food-name">Mekong Coconut Curry Shrimp</span>
+                            <span class="food-price">$10.03</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                         <div class="food-item" data-name="Tikka Bun" data-price="7.99">
-                            <span class="food-name">Tikka Bun</span>
-                            <span class="food-price">$7.99</span>
+                            <span class="food-name">Thanh Hoa Grilled Fermented Pork Roll</span>
+                            <span class="food-price">$3.66</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                     </div>
