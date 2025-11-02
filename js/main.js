@@ -46,12 +46,81 @@ function showWelcomeAnimation() {
     }, 3000);
 }
 
+// Dropdown Plugin
+(function($) {
+    $.fn.extend({
+        dropdown: function(options) {
+            var defaults = {
+                duration: 250,
+                delay: 250,
+                close: function(ul) {
+                    ul.slideUp(options.duration);
+                },
+                open: function(ul) {
+                    ul.hide().slideDown(options.duration);
+                }
+            },
+            options = $.extend(defaults, options),
+            dropdown = function() {
+                $(this).children('li:has(ul)').each(go);
+            },
+            go = function() {
+                var li = $(this),
+                submenu = li.children('ul'),
+                deferred;
+                dropdown.apply(submenu);
+                li.hover(function() {
+                    li.data('hovering.dropdown', true);
+                    if(!deferred) {
+                        options.open(submenu);
+                        deferred = $.Deferred(),
+                        resolve = function() {
+                            setTimeout(function() {
+                                deferred && (li.data('hovering.dropdown') || deferred.resolve());
+                            }, options.delay);
+                        };
+                        deferred.promise().done(function() {
+                            options.close(submenu);
+                            li.off('mouseleave.dropdown');
+                            deferred = null;
+                        });
+                        li.on('mouseleave.dropdown', resolve);
+                    }
+                }, function() {
+                    li.data('hovering.dropdown', false);
+                });
+            };
+            
+            return this.each(dropdown);
+        }
+    });
+})(jQuery);
+
 // Navigation functionality
 function initNavigation() {
-    // Smooth scrolling for navigation links
-    $('.nav-menu a[href^="#"]').on('click', function(e) {
+    // Initialize dropdown plugin for nav menu
+    $('.nav-menu').dropdown({
+        duration: 300,
+        delay: 200
+    });
+
+    // Smooth scrolling for all navigation links including dropdown
+    $('.nav-menu a[href^="#"], .dropdown-menu a[href^="#"]').on('click', function(e) {
         e.preventDefault();
-        const target = $(this.getAttribute('href'));
+        const href = $(this).attr('href');
+        const dataSection = $(this).data('section');
+        
+        let target;
+        
+        // Handle special sections within About page
+        if (dataSection === 'services') {
+            target = $('.services-section');
+        } else if (dataSection === 'openings') {
+            target = $('.openings-section');
+        } else {
+            target = $(href);
+        }
+        
         if (target.length) {
             $('html, body').stop().animate({
                 scrollTop: target.offset().top - 80
@@ -71,13 +140,23 @@ function initNavigation() {
         $('.nav-menu').removeClass('active');
     });
 
-    // Fixed navbar on scroll (like the code example)
+    // Smart Sticky Navigation Bar
+    // Calculate the height of navbar
+    var navbarHeight = $('.navbar').outerHeight();
+    
     $(window).on('scroll', function() {
-        let pos = $(window).scrollTop();
-        if (pos >= 100) {
-            $('.navbar').addClass('fxd-navbar');
+        var scrollTop = $(window).scrollTop();
+        
+        // If scrolled down more than navbar height
+        if (scrollTop > navbarHeight) {
+            // Add fixed class
+            $('.navbar').addClass('fixed');
+            // Add padding to prevent content jump
+            $('body').css('padding-top', navbarHeight + 'px');
         } else {
-            $('.navbar').removeClass('fxd-navbar');
+            // Remove fixed class when scroll up
+            $('.navbar').removeClass('fixed');
+            $('body').css('padding-top', '0');
         }
     });
 }
@@ -741,8 +820,8 @@ function initBookingSystem() {
         $('body').css('overflow', '');
     }
     
-    // Floating cart button click
-    $('.cart-btn').on('click', function() {
+    // Nav cart button click
+    $('.nav-cart-btn').on('click', function() {
         if (!guestName) {
             alert('Please enter your name first to view your cart.');
             $('#guestNameModal').removeClass('hidden');
@@ -937,12 +1016,12 @@ function initBookingSystem() {
     
     function updateFloatingCart() {
         const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-        $('.cart-count').text(cartCount);
+        $('.nav-cart-count').text(cartCount);
         
         if (cartCount > 0) {
-            $('.cart-count').fadeIn();
+            $('.nav-cart-count').fadeIn();
         } else {
-            $('.cart-count').fadeOut();
+            $('.nav-cart-count').fadeOut();
         }
     }
     
