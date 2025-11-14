@@ -18,10 +18,29 @@ $(document).ready(function() {
 
 // Preloader
 function initPreloader() {
-    $(window).on('load', function() {
+    const audio = document.getElementById('preloaderAudio');
+    const enterButton = document.getElementById('enterButton');
+    
+    // Handle enter button click
+    enterButton.addEventListener('click', function() {
+        // Play audio
+        if (audio) {
+            audio.play().catch(function(error) {
+                console.log('Audio play failed:', error);
+            });
+        }
+        
+        // Hide button
+        enterButton.classList.add('hidden');
+        
+        // Start preloader animation
         setTimeout(function() {
             $('#preloader').addClass('fade-out');
             setTimeout(function() {
+                // Move audio to body to keep it playing
+                if (audio) {
+                    document.body.appendChild(audio);
+                }
                 $('#preloader').remove();
             }, 500);
         }, 2000); // Show logo for 2 seconds minimum

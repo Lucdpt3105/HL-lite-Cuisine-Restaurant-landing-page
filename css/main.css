@@ -2137,6 +2137,43 @@ p {
   text-transform: uppercase;
 }
 
+.enter-button {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  background: linear-gradient(135deg, #e76f51, #f4a261);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+  animation: buttonPulse 2s infinite;
+}
+
+.enter-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.5);
+}
+
+.enter-button:active {
+  transform: translateY(-1px);
+}
+
+.enter-button.hidden {
+  display: none;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 @keyframes logoFadeIn {
   0% {
     opacity: 0;
