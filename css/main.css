@@ -612,7 +612,7 @@ body {
 /* Chefs Section */
 .chefs-section {
   padding: 6rem 0;
-  background-image: url(images\BackGroundForChefs.png);
+  background-image: url('../images/Frame 3.png');
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
@@ -744,7 +744,10 @@ body {
 .top-sellers-section {
   padding: 6rem 0;
   background-image: url('../images/Frame 2.png');
-  /* background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); */
+  background-size: cover; 
+ background-position: center; 
+ background-repeat: no-repeat; 
+ background-attachment: scroll;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
@@ -880,15 +883,22 @@ body {
 }
 
 /* About Section */
-.about-section {
+.about-restaurant-section {
   padding: 6rem 0;
-  background: #f8f9fa;
+  background-image: url('../images/Frame 5.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
 .chefs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
+
   margin-top: 2rem;
 }
 
@@ -948,7 +958,10 @@ body {
 /* Menu Section */
 .menu-section {
   padding: 6rem 0;
-  background: url('../images/BackGroundForChefs.png') center/cover no-repeat;
+  background: url('../images/Frame 4.png') center;
+   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: scroll;
   position: relative;
   opacity: 0;
@@ -963,7 +976,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: rgba(0, 0, 0, 0.4); */
+ /* background: rgba(255, 255, 255, 0.85); */
   z-index: 1;
 }
 
@@ -1025,8 +1038,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
-
+.menu-item:hover .menu-item-image img {
+  transform: scale(1.15);
+}
 .menu-item-info {
   text-align: left;
   flex: 1;
@@ -1081,7 +1097,7 @@ body {
 /* Events Section */
 .events-section {
   padding: 6rem 0;
-  background-image: url('../images/EventBackground.png');
+  background-image: url('../images/Frame 3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1106,7 +1122,7 @@ body {
 
 .events-section .container {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 .events-section .section-header h2 {
@@ -1297,12 +1313,14 @@ body {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 3rem;
+  position: relative;
+  z-index: 100; 
 }
 
 .carousel-prev,
 .carousel-next {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 79, 79);
   border: 2px solid rgba(255, 255, 255, 0.3);
   width: 60px;
   height: 60px;
@@ -1314,6 +1332,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;  /* ← THÊM DÒNG NÀY */
+  z-index: 100;  /* ← THÊM DÒNG NÀY */
 }
 
 .carousel-prev:hover,
