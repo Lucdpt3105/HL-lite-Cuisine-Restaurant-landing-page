@@ -463,7 +463,7 @@ function initEventsCarousel() {
     setInterval(function() {
     currentEventIndex = (currentEventIndex + 1) % totalEvents;
     showEvent(currentEventIndex);
-}, 3000); // 3s tự động chuyển event
+}, 6000); // 3s tự động chuyển event
 }
 
 // Contact form functionality
