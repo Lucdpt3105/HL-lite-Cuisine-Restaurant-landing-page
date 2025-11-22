@@ -459,6 +459,11 @@ function initEventsCarousel() {
             videoObserver.observe(video);
         }
     });
+    //Auto chuyển slide
+    setInterval(function() {
+    currentEventIndex = (currentEventIndex + 1) % totalEvents;
+    showEvent(currentEventIndex);
+}, 6000); // 3s tự động chuyển event
 }
 
 // Contact form functionality
