@@ -1369,9 +1369,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  /* ← THÊM DÒNG NÀY */
   z-index: 100;
-  /* ← THÊM DÒNG NÀY */
 }
 
 .carousel-prev:hover,
@@ -2811,7 +2809,7 @@ p {
 
 .welcome-text {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   color: white;
   display: flex;
