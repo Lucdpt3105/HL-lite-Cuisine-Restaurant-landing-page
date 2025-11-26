@@ -36,10 +36,10 @@ body {
 /* Smart Sticky Navigation - Fixed navbar class */
 .navbar.fixed {
   position: fixed;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 95%;
   max-width: 1400px;
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px) saturate(180%);
