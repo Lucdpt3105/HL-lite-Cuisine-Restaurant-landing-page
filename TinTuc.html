@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tin Tức & Sự Kiện - Senorita Luxury Hotel & Resort</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <style>
+        /* --- GLOBAL VARIABLES & RESET --- */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #AA8B29;
+            --black: #0F0F0F;
+            --white: #FFFFFF;
+            --gray-bg: #F9F9F9;
+            --text-gray: #555;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--white); 
+            color: var(--text-gray); 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden; 
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .nav-link, .logo { font-family: 'Montserrat', serif; }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 80px;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+
+        header.scrolled {
+            background: rgba(15, 15, 15, 0.95);
+            padding: 15px 80px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo { 
+            color: var(--white); 
+            font-size: 28px; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--gold); }
+
+        nav a {
+            margin-left: 40px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px;
+            background: var(--gold); transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+        nav a:hover::after { width: 100%; }
+
+        /* --- HERO SLIDER --- */
+        .hero-slider {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide-item {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            outline: none;
+        }
+
+        .slide-bg {
+            width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            transform: scale(1);
+            transition: transform 6s ease;
+        }
+        
+        .slick-active .slide-bg { transform: scale(1.1); }
+
+        .overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.35);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            width: 80%;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 5vw, 90px);
+            font-weight: 400;
+            margin-bottom: 20px;
+			white-space:nowrap;
+            opacity: 0; transform: translateY(30px);
+            transition: 1s ease; transition-delay: 0.5s;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            opacity: 0; transform: translateY(30px);
+            transition: 1s ease; transition-delay: 0.2s;
+        }
+        
+        .slick-active .hero-title, 
+        .slick-active .hero-sub,
+        .slick-active .btn-gold {
+            opacity: 1; transform: translateY(0);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            background: transparent;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 1s ease 0.8s, transform 1s ease 0.8s, background 0.3s;
+        }
+        .btn-gold:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+        /* --- SECTION COMMON --- */
+        section { padding: 100px 80px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 48px; color: var(--black); margin-bottom: 15px; }
+        .section-header p { font-style: italic; color: var(--gold); font-size: 18px; }
+
+        /* --- NEWS GRID --- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .news-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .news-img-wrap { overflow: hidden; height: 300px; position: relative; }
+        .news-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .news-card:hover .news-img-wrap img { transform: scale(1.1); }
+
+        .date-tag {
+            position: absolute; top: 20px; left: 20px;
+            background: var(--gold); color: white;
+            padding: 8px 15px; font-size: 12px; font-weight: 500;
+            text-align: center;
+        }
+
+        .date-tag .day { display: block; font-size: 24px; font-weight: 700; line-height: 1; }
+        .date-tag .month { display: block; font-size: 12px; text-transform: uppercase; }
+
+        .news-details { padding: 30px; }
+        .news-category { 
+            color: var(--gold); 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 10px;
+        }
+        .news-details h3 { font-size: 24px; margin-bottom: 15px; color: var(--black); line-height: 1.3; }
+        .news-details p { font-size: 14px; color: #777; margin-bottom: 20px; line-height: 1.8; }
+        .news-link { 
+            color: var(--black); 
+            text-decoration: none; 
+            border-bottom: 1px solid var(--gold); 
+            padding-bottom: 3px; 
+            font-size: 13px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .news-link:hover { color: var(--gold); }
+
+        /* --- FEATURED EVENT --- */
+        .featured-event {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 80px;
+        }
+
+        .featured-event-img {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .featured-event-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .featured-event:hover .featured-event-img img {
+            transform: scale(1.1);
+        }
+
+        .featured-event-content h3 {
+            font-size: 36px;
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .featured-event-content .event-date {
+            color: var(--gold);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .featured-event-content p {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* --- PARALLAX QUOTE --- */
+        .parallax-quote {
+            background-image: url('https://images.unsplash.com/photo-1519167758481-83f29da8c1f0?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            height: 60vh;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .parallax-quote::before { content:''; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+        .quote-content { position: relative; text-align: center; color: white; max-width: 800px; }
+        .quote-content h2 { font-size: 30px; line-height: 1.4; font-style: italic; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #1a1a1a;
+            color: #777;
+            padding: 60px 80px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 14px;
+        }
+        .footer-logo { color: var(--white); font-size: 24px; font-family: 'Montserrat'; margin-bottom: 10px; }
+
+        /* --- ANIMATION ON SCROLL --- */
+        .reveal {
+            opacity: 0; transform: translateY(50px); transition: all 1s ease;
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 20px; }
+            nav { display: none; }
+            .hero-title { font-size: 40px; }
+            section { padding: 60px 20px; }
+            .news-grid { grid-template-columns: 1fr; }
+            .featured-event { grid-template-columns: 1fr; gap: 30px; }
+            .featured-event-img { height: 350px; }
+            footer { flex-direction: column; text-align: center; gap: 20px;}
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="logo">Senorita <span>.</span></div>
+        <nav>
+            <a href="Home (1).html">Home</a>
+            <a href="Home (1).html#about">Giới thiệu</a>
+            <a href="Home (1).html#rooms">Phòng nghỉ</a>
+            <a href="TinTuc.html">Tin tức</a>
+			<a href="Home (1).html#contact">Liên hệ</a>
+        </nav>
+    </header>
+
+    <div class="hero-slider" id="heroSlider">
+        
+        <div class="slide-item">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <p class="hero-sub">Cập nhật mới nhất</p>
+                <h1 class="hero-title">Tin Tức & Sự Kiện</h1>
+                <a href="#news" class="btn-gold">Khám Phá Ngay</a>
+            </div>
+        </div>
+
+        <div class="slide-item">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <p class="hero-sub">Sự kiện đặc biệt</p>
+                <h1 class="hero-title">Trải Nghiệm Độc Đáo</h1>
+                <a href="#events" class="btn-gold">Tìm Hiểu Thêm</a>
+            </div>
+        </div>
+
+        <div class="slide-item">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <p class="hero-sub">Ưu đãi hấp dẫn</p>
+                <h1 class="hero-title">Chương Trình Khuyến Mãi</h1>
+                <a href="#news" class="btn-gold">Xem Chi Tiết</a>
+            </div>
+        </div>
+
+    </div>
+
+    <section id="news">
+        <div class="section-header reveal">
+            <p>Cập nhật mới nhất từ Senorita</p>
+            <h2>Tin Tức Khách Sạn</h2>
+            <div style="width: 60px; height: 2px; background: var(--gold); margin: 20px auto;"></div>
+        </div>
+
+        <div class="news-grid">
+            <div class="news-card reveal">
+                <div class="news-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80" alt="Ưu đãi mùa hè">
+                    <div class="date-tag">
+                        <span class="day">15</span>
+                        <span class="month">Tháng 12</span>
+                    </div>
+                </div>
+                <div class="news-details">
+                    <div class="news-category">Ưu Đãi</div>
+                    <h3>Ưu Đãi Mùa Hè - Giảm Giá Đến 40%</h3>
+                    <p>Chào đón mùa hè với chương trình ưu đãi đặc biệt! Đặt phòng từ 3 đêm trở lên và nhận ngay giảm giá 40% cùng bữa sáng miễn phí tại nhà hàng 5 sao của chúng tôi.</p>
+                    <a href="#" class="news-link">Đọc thêm</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal">
+                <div class="news-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Nhà hàng mới">
+                    <div class="date-tag">
+                        <span class="day">10</span>
+                        <span class="month">Tháng 12</span>
+                    </div>
+                </div>
+                <div class="news-details">
+                    <div class="news-category">Ẩm Thực</div>
+                    <h3>Khai Trương Nhà Hàng Fusion Độc Đáo</h3>
+                    <p>Senorita tự hào giới thiệu nhà hàng La Mer - nơi hội tụ tinh hoa ẩm thực Á - Âu được chế biến bởi đội ngũ đầu bếp hàng đầu. Trải nghiệm ẩm thực đẳng cấp với view biển tuyệt đẹp.</p>
+                    <a href="#" class="news-link">Đọc thêm</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal">
+                <div class="news-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Spa wellness">
+                    <div class="date-tag">
+                        <span class="day">05</span>
+                        <span class="month">Tháng 12</span>
+                    </div>
+                </div>
+                <div class="news-details">
+                    <div class="news-category">Dịch Vụ</div>
+                    <h3>Spa & Wellness Center Nâng Cấp</h3>
+                    <p>Trung tâm chăm sóc sức khỏe & spa của Senorita vừa hoàn tất nâng cấp với công nghệ trị liệu hiện đại nhất. Thư giãn tuyệt đối với liệu trình massage đá nóng và chăm sóc da chuyên sâu.</p>
+                    <a href="#" class="news-link">Đọc thêm</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal">
+                <div class="news-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Giải thưởng">
+                    <div class="date-tag">
+                        <span class="day">01</span>
+                        <span class="month">Tháng 12</span>
+                    </div>
+                </div>
+                <div class="news-details">
+                    <div class="news-category">Thành Tựu</div>
+                    <h3>Senorita Nhận Giải Thưởng Khách Sạn Tốt Nhất</h3>
+                    <p>Chúng tôi vinh dự được trao giải "Khách sạn sang trọng tốt nhất Việt Nam 2025" bởi World Luxury Hotel Awards. Đây là minh chứng cho chất lượng dịch vụ đẳng cấp quốc tế của Senorita.</p>
+                    <a href="#" class="news-link">Đọc thêm</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal">
+                <div class="news-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=800&q=80" alt="Tour du lịch">
+                    <div class="date-tag">
+                        <span class="day">28</span>
+                        <span class="month">Tháng 11</span>
+                    </div>
+                </div>
+                <div class="news-details">
+                    <div class="news-category">Trải Nghiệm</div>
+                    <h3>Combo Nghỉ Dưỡng & Khám Phá Thiên Nhiên</h3>
+                    <p>Gói combo đặc biệt kết hợp giữa nghỉ dưỡng tại Senorita và tour khám phá thiên nhiên hoang sơ. Bao gồm trekking, lặn biển ngắm san hô và picnic bãi biển riêng tư.</p>
+                    <a href="#" class="news-link">Đọc thêm</a>
+                </div>
+            </div>
+
+            <div class="news-card reveal">
+                <div class="news-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=80" alt="Môi trường">
+                    <div class="date-tag">
+                        <span class="day">20</span>
+                        <span class="month">Tháng 11</span>
+                    </div>
+                </div>
+                <div class="news-details">
+                    <div class="news-category">Cộng Đồng</div>
+                    <h3>Dự Án Bảo Vệ Môi Trường Biển</h3>
+                    <p>Senorita khởi động chiến dịch "Bảo vệ đại dương xanh" với mục tiêu giảm thiểu 100% nhựa dùng một lần và tổ chức các hoạt động làm sạch bãi biển định kỳ.</p>
+                    <a href="#" class="news-link">Đọc thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" style="background: var(--gray-bg);">
+        <div class="section-header reveal">
+            <p>Sự kiện sắp diễn ra</p>
+            <h2>Sự Kiện Đặc Biệt</h2>
+            <div style="width: 60px; height: 2px; background: var(--gold); margin: 20px auto;"></div>
+        </div>
+
+        <div class="featured-event reveal">
+            <div class="featured-event-img">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Gala Night">
+            </div>
+            <div class="featured-event-content">
+                <h3>Đêm Gala Đón Năm Mới 2026</h3>
+                <div class="event-date">📅 31 Tháng 12, 2025 • 19:00</div>
+                <p>Hòa mình vào đêm tiệc Gala hoành tráng chào đón năm mới 2026 tại Senorita. Thưởng thức bữa tối buffet 5 sao, nhạc sống, pháo hoa rực rỡ và nhiều phần quà hấp dẫn. Dress code: Formal/Cocktail.</p>
+                <p><strong>Giá vé:</strong> 2.500.000 VNĐ/người (Bao gồm buffet & đồ uống không giới hạn)</p>
+                <a href="#" class="btn-gold">Đặt vé ngay</a>
+            </div>
+        </div>
+
+        <div class="featured-event reveal" style="margin-top: 80px;">
+            <div class="featured-event-content">
+                <h3>Yoga Retreat & Meditation</h3>
+                <div class="event-date">📅 15-17 Tháng 1, 2026</div>
+                <p>Tham gia khóa tu tập yoga & thiền định 3 ngày 2 đêm với huấn luyện viên quốc tế. Chương trình bao gồm: buổi yoga bình minh bên bãi biển, thiền định, dinh dưỡng lành mạnh và liệu trình spa thư giãn.</p>
+                <p><strong>Gói trọn gói:</strong> 8.500.000 VNĐ/người (2 đêm nghỉ + toàn bộ activities)</p>
+                <a href="#" class="btn-gold">Đăng ký ngay</a>
+            </div>
+            <div class="featured-event-img">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Yoga Retreat">
+            </div>
+        </div>
+
+        <div class="featured-event reveal" style="margin-top: 80px;">
+            <div class="featured-event-img">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wine Tasting">
+            </div>
+            <div class="featured-event-content">
+                <h3>Wine Tasting Evening</h3>
+                <div class="event-date">📅 Mỗi thứ 6 hàng tuần • 18:00 - 21:00</div>
+                <p>Tối thứ Sáu sang trọng với buổi thưởng thức rượu vang cao cấp từ các vùng nổi tiếng thế giới. Được hướng dẫn bởi sommelier chuyên nghiệp kèm theo các món ăn nhẹ tinh tế.</p>
+                <p><strong>Giá vé:</strong> 1.200.000 VNĐ/người</p>
+                <a href="#" class="btn-gold">Đặt chỗ</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-quote">
+        <div class="quote-content reveal">
+            <h2>"Mỗi sự kiện tại Senorita là một câu chuyện đáng nhớ,<br>mỗi khoảnh khắc là một kỷ niệm vô giá."</h2>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-left">
+            <div class="footer-logo">Senorita.</div>
+            <p>123 Đường Ven Biển, Quận 1, TP.HCM</p>
+        </div>
+        <div class="footer-right">
+            <p>© 2025 Senorita Luxury Hotel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            
+            // --- 1. Init Slick Slider ---
+            $('#heroSlider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                fade: true,
+                cssEase: 'linear',
+                arrows: false,
+                pauseOnHover: false
+            });
+
+            // --- 2. Header Scroll Effect ---
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('#header').addClass('scrolled');
+                } else {
+                    $('#header').removeClass('scrolled');
+                }
+            });
+
+            // --- 3. Reveal Animation on Scroll ---
+            function revealOnScroll() {
+                var scrolled = $(window).scrollTop();
+                var windowHeight = $(window).height();
+
+                $('.reveal').each(function(){
+                    var offset = $(this).offset().top;
+                    if (scrolled + windowHeight - 150 > offset) {
+                        $(this).addClass('active');
+                    }
+                });
+            }
+
+            $(window).scroll(revealOnScroll);
+            revealOnScroll();
+
+            // --- 4. Smooth Scrolling for Anchors ---
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
