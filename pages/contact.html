@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - HL Lite Cuisine Restaurant</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main-modular.css">
+    <link rel="stylesheet" href="../css/pages/contact.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Rancho&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('../images/contact-header.jpg');">
+        <h1>Contact Us</h1>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+
+            <div class="contact-info-grid">
+                <!-- Phone -->
+                <div class="info-card" data-aos="fade-up">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <p><a href="tel:+1234567891">+1 (234) 567-891</a></p>
+                    <span class="info-label">Mon - Fri, 9AM - 10PM</span>
+                </div>
+
+                <!-- Email -->
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@elitecuisine.com">info@elitecuisine.com</a></p>
+                    <p><a href="mailto:booking@elitecuisine.com">booking@elitecuisine.com</a></p>
+                    <span class="info-label">Reply within 24 hours</span>
+                </div>
+
+                <!-- Location -->
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>123 Gourmet Street</p>
+                    <p>Culinary District, NY 10001</p>
+                    <span class="info-label">Get Directions</span>
+                </div>
+
+                <!-- Hours -->
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Friday: 11AM - 10PM</p>
+                    <p>Saturday - Sunday: 10AM - 11PM</p>
+                    <span class="info-label">Open 7 days a week</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-wrapper">
+                <!-- Form Side -->
+                <div class="booking-form-side" data-aos="fade-right">
+                    <div class="form-header">
+                        <h2>Reserve A Table</h2>
+                        <p>Book your dining experience with us</p>
+                    </div>
+
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">
+                                    <i class="fas fa-user"></i> Full Name *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="fullName" 
+                                    name="fullName" 
+                                    placeholder="John Doe"
+                                    required
+                                >
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email Address *
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="john@example.com"
+                                    required
+                                >
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i> Phone Number *
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="+1 (234) 567-890"
+                                    required
+                                >
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="guests">
+                                    <i class="fas fa-users"></i> Number of Guests *
+                                </label>
+                                <select id="guests" name="guests" required>
+                                    <option value="">Select guests</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="7">7+ Guests</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">
+                                    <i class="fas fa-calendar"></i> Date *
+                                </label>
+                                <input 
+                                    type="date" 
+                                    id="date" 
+                                    name="date"
+                                    required
+                                >
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">
+                                    <i class="fas fa-clock"></i> Time *
+                                </label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select time</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment"></i> Special Requests (Optional)
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="4"
+                                placeholder="Any dietary requirements or special occasions?"
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-check-circle"></i> Confirm Reservation
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Side -->
+                <div class="booking-info-side" data-aos="fade-left">
+                    <div class="info-content">
+                        <h3>Reservation Policy</h3>
+                        <ul class="policy-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Reservations recommended for groups of 4+</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Please arrive within 15 minutes of reservation time</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cancellations accepted up to 24 hours before</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Smart casual dress code preferred</span>
+                            </li>
+                        </ul>
+
+                        <div class="info-divider"></div>
+
+                        <h3>Special Occasions</h3>
+                        <p>Planning a birthday, anniversary, or special celebration? Let us know in your special requests, and we'll make it memorable!</p>
+
+                        <div class="info-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-birthday-cake"></i>
+                                <span>Birthday Celebrations</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Romantic Dinners</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-glass-cheers"></i>
+                                <span>Private Events</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-emergency">
+                            <i class="fas fa-phone-volume"></i>
+                            <div>
+                                <strong>Need immediate assistance?</strong>
+                                <p>Call us at <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Send Us A Message</h2>
+                <p class="section-subtitle">Have a question? We're here to help</p>
+            </div>
+
+            <form id="contactForm" class="contact-form" data-aos="fade-up">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactName">Your Name *</label>
+                        <input 
+                            type="text" 
+                            id="contactName" 
+                            name="contactName" 
+                            placeholder="Enter your name"
+                            required
+                        >
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Your Email *</label>
+                        <input 
+                            type="email" 
+                            id="contactEmail" 
+                            name="contactEmail" 
+                            placeholder="Enter your email"
+                            required
+                        >
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        placeholder="What is this regarding?"
+                        required
+                    >
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Your Message *</label>
+                    <textarea 
+                        id="contactMessage" 
+                        name="contactMessage" 
+                        rows="6"
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+                    <span class="error-message"></span>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Map Section (Optional) -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1841!2d-73.9877!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMTUuNyJX!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/utils/layout-loader.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+</html>

@@ -140,23 +140,15 @@ function initNavigation() {
         $('.nav-menu').removeClass('active');
     });
 
-    // Smart Sticky Navigation Bar
-    // Calculate the height of navbar
-    var navbarHeight = $('.navbar').outerHeight();
-    
+    // Transparent to Opaque Navbar on Scroll
     $(window).on('scroll', function() {
         var scrollTop = $(window).scrollTop();
         
-        // If scrolled down more than navbar height
-        if (scrollTop > navbarHeight) {
-            // Add fixed class
-            $('.navbar').addClass('fixed');
-            // Add padding to prevent content jump
-            $('body').css('padding-top', navbarHeight + 'px');
+        // If scrolled down more than 50px, show opaque navbar
+        if (scrollTop > 50) {
+            $('.navbar').addClass('scrolled');
         } else {
-            // Remove fixed class when scroll up
-            $('.navbar').removeClass('fixed');
-            $('body').css('padding-top', '0');
+            $('.navbar').removeClass('scrolled');
         }
     });
 }
@@ -459,11 +451,12 @@ function initEventsCarousel() {
             videoObserver.observe(video);
         }
     });
-    //Auto chuyển slide
+    
+    // Auto-advance carousel every 5 seconds
     setInterval(function() {
-    currentEventIndex = (currentEventIndex + 1) % totalEvents;
-    showEvent(currentEventIndex);
-}, 6000); // 3s tự động chuyển event
+        currentEventIndex = (currentEventIndex + 1) % totalEvents;
+        showEvent(currentEventIndex);
+    }, 5000);
 }
 
 // Contact form functionality

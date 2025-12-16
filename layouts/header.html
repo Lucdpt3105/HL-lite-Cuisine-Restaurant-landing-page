@@ -1,0 +1,39 @@
+<!-- Header Component - Shared across all pages -->
+<header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../images/logo.svg" alt="Élite Cuisine Logo" class="header-logo">
+                <span>Élite Cuisine Restaurant</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../pages/about.html" class="nav-link">About</a></li>
+                <li><a href="../pages/menu.html" class="nav-link">Menu</a></li>
+                <li><a href="../pages/events.html" class="nav-link">Events</a></li>
+                <li><a href="../pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <!-- Welcome Badge -->
+                <div id="welcomeBadge" class="welcome-badge">
+                    <span class="welcome-text">Xin chào, <span id="guestDisplayName">Guest</span>! 👋</span>
+                </div>
+                <!-- Cart Button -->
+                <button class="nav-cart-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="nav-cart-count hidden">0</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>

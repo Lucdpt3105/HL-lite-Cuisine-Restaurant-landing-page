@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu - HL Lite Cuisine Restaurant</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main-modular.css">
+    <link rel="stylesheet" href="../css/pages/menu.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Rancho&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('../images/menu-header.jpg');">
+        <h1>Our Menu</h1>
+    </section>
+
+    <!-- Menu Filter -->
+    <section class="menu-filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Dishes</button>
+                <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+                <button class="filter-btn" data-filter="lunch">Lunch</button>
+                <button class="filter-btn" data-filter="dinner">Dinner</button>
+                <button class="filter-btn" data-filter="dessert">Desserts</button>
+                <button class="filter-btn" data-filter="drinks">Drinks</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid">
+                
+                <!-- Breakfast Items -->
+                <div class="menu-card" data-category="breakfast">
+                    <div class="menu-image">
+                        <img src="../images/breakfast-1.jpg" alt="Pancakes with Berries">
+                        <div class="menu-badge">Popular</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Fluffy Pancakes</h3>
+                            <span class="menu-price">$12.99</span>
+                        </div>
+                        <p class="menu-description">Stack of fluffy pancakes served with fresh berries, maple syrup, and whipped cream</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="breakfast">
+                    <div class="menu-image">
+                        <img src="../images/breakfast-2.jpg" alt="Eggs Benedict">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Eggs Benedict</h3>
+                            <span class="menu-price">$14.99</span>
+                        </div>
+                        <p class="menu-description">Poached eggs on English muffin with hollandaise sauce and crispy bacon</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="breakfast">
+                    <div class="menu-image">
+                        <img src="../images/breakfast-3.jpg" alt="Avocado Toast">
+                        <div class="menu-badge new">New</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Avocado Toast</h3>
+                            <span class="menu-price">$11.99</span>
+                        </div>
+                        <p class="menu-description">Fresh avocado on sourdough with cherry tomatoes, feta cheese, and poached egg</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lunch Items -->
+                <div class="menu-card" data-category="lunch">
+                    <div class="menu-image">
+                        <img src="../images/lunch-1.jpg" alt="Grilled Chicken Salad">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Grilled Chicken Salad</h3>
+                            <span class="menu-price">$15.99</span>
+                        </div>
+                        <p class="menu-description">Fresh greens with grilled chicken, cherry tomatoes, cucumber, and house dressing</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="lunch">
+                    <div class="menu-image">
+                        <img src="../images/lunch-2.jpg" alt="Club Sandwich">
+                        <div class="menu-badge">Popular</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Classic Club Sandwich</h3>
+                            <span class="menu-price">$13.99</span>
+                        </div>
+                        <p class="menu-description">Triple-decker sandwich with turkey, bacon, lettuce, tomato, and mayo</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="lunch">
+                    <div class="menu-image">
+                        <img src="../images/lunch-3.jpg" alt="Caesar Wrap">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Caesar Chicken Wrap</h3>
+                            <span class="menu-price">$12.99</span>
+                        </div>
+                        <p class="menu-description">Grilled chicken, romaine lettuce, parmesan cheese, and Caesar dressing in tortilla</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dinner Items -->
+                <div class="menu-card" data-category="dinner">
+                    <div class="menu-image">
+                        <img src="../images/dinner-1.jpg" alt="Grilled Salmon">
+                        <div class="menu-badge">Chef's Special</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Grilled Salmon</h3>
+                            <span class="menu-price">$24.99</span>
+                        </div>
+                        <p class="menu-description">Fresh Atlantic salmon with lemon butter sauce, asparagus, and roasted potatoes</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="dinner">
+                    <div class="menu-image">
+                        <img src="../images/dinner-2.jpg" alt="Ribeye Steak">
+                        <div class="menu-badge">Popular</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Ribeye Steak</h3>
+                            <span class="menu-price">$28.99</span>
+                        </div>
+                        <p class="menu-description">12oz ribeye steak cooked to perfection with garlic butter and seasonal vegetables</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="dinner">
+                    <div class="menu-image">
+                        <img src="../images/dinner-3.jpg" alt="Pasta Carbonara">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Pasta Carbonara</h3>
+                            <span class="menu-price">$18.99</span>
+                        </div>
+                        <p class="menu-description">Creamy carbonara with pancetta, egg yolk, parmesan cheese, and black pepper</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="menu-card" data-category="dessert">
+                    <div class="menu-image">
+                        <img src="../images/dessert-1.jpg" alt="Chocolate Lava Cake">
+                        <div class="menu-badge">Popular</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Chocolate Lava Cake</h3>
+                            <span class="menu-price">$8.99</span>
+                        </div>
+                        <p class="menu-description">Warm chocolate cake with molten center, served with vanilla ice cream</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="dessert">
+                    <div class="menu-image">
+                        <img src="../images/dessert-2.jpg" alt="Tiramisu">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Classic Tiramisu</h3>
+                            <span class="menu-price">$7.99</span>
+                        </div>
+                        <p class="menu-description">Italian dessert with coffee-soaked ladyfingers and mascarpone cream</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="dessert">
+                    <div class="menu-image">
+                        <img src="../images/dessert-3.jpg" alt="Cheesecake">
+                        <div class="menu-badge new">New</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>New York Cheesecake</h3>
+                            <span class="menu-price">$8.99</span>
+                        </div>
+                        <p class="menu-description">Creamy cheesecake with graham cracker crust and fresh berry compote</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drinks -->
+                <div class="menu-card" data-category="drinks">
+                    <div class="menu-image">
+                        <img src="../images/drink-1.jpg" alt="Cappuccino">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Cappuccino</h3>
+                            <span class="menu-price">$4.99</span>
+                        </div>
+                        <p class="menu-description">Classic Italian coffee with steamed milk foam and cocoa powder</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="drinks">
+                    <div class="menu-image">
+                        <img src="../images/drink-2.jpg" alt="Fresh Juice">
+                        <div class="menu-badge">Popular</div>
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Fresh Orange Juice</h3>
+                            <span class="menu-price">$5.99</span>
+                        </div>
+                        <p class="menu-description">Freshly squeezed orange juice, no added sugar or preservatives</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="drinks">
+                    <div class="menu-image">
+                        <img src="../images/drink-3.jpg" alt="Smoothie">
+                        <div class="menu-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3>Berry Smoothie</h3>
+                            <span class="menu-price">$6.99</span>
+                        </div>
+                        <p class="menu-description">Mixed berries blended with yogurt, honey, and ice</p>
+                        <div class="menu-footer">
+                            <div class="menu-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                            <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/utils/layout-loader.js"></script>
+    <script src="../js/menu.js"></script>
+</body>
+</html>

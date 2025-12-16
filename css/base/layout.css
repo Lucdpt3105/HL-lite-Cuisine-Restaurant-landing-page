@@ -1,0 +1,28 @@
+/* ========================================
+   LAYOUT - CONTAINERS & GRIDS
+   ======================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Section spacing */
+section {
+  padding: var(--spacing-3xl) 0;
+}
+
+section.section-sm {
+  padding: var(--spacing-2xl) 0;
+}
+
+section.section-lg {
+  padding: 100px 0;
+}

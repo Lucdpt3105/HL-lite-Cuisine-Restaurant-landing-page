@@ -1,0 +1,595 @@
+/* ============================================
+   EVENTS PAGE STYLES
+   ============================================ */
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.page-header {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.page-header h1 {
+    position: relative;
+    z-index: 2;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    font-style: italic;
+}
+
+/* ============================================
+   EVENTS CAROUSEL SECTION
+   ============================================ */
+.events-carousel-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-white);
+}
+
+.events-carousel {
+    margin: 0 auto;
+    max-width: var(--container-xl);
+    padding: 0 var(--spacing-lg);
+}
+
+.event-slide {
+    padding: 0 var(--spacing-md);
+}
+
+/* ============================================
+   EVENT CARD
+   ============================================ */
+.event-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+.event-card.featured {
+    border: 2px solid var(--color-primary);
+}
+
+/* Event Image */
+.event-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-image img {
+    transform: scale(1.1);
+}
+
+/* Event Badge */
+.event-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    border-radius: 50px;
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+.event-badge.special {
+    background: linear-gradient(135deg, #9b59b6, #e74c3c);
+}
+
+/* Event Date Badge */
+.event-date-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+}
+
+.event-date-badge .day {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.event-date-badge .month {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* Event Content */
+.event-content {
+    padding: var(--spacing-xl);
+}
+
+.event-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.event-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.event-meta i {
+    color: var(--color-primary);
+}
+
+.event-content h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.event-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.event-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.event-price .price {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.btn-book-event {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-book-event:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   SLICK CAROUSEL CUSTOMIZATION
+   ============================================ */
+.slick-dots {
+    bottom: -50px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: var(--color-primary);
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--color-primary);
+}
+
+.slick-prev,
+.slick-next {
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+}
+
+.slick-prev {
+    left: -60px;
+}
+
+.slick-next {
+    right: -60px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px;
+    color: var(--color-primary);
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+    color: var(--color-secondary);
+}
+
+/* ============================================
+   EVENTS LIST SECTION
+   ============================================ */
+.events-list-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-background);
+}
+
+.events-list {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+/* ============================================
+   EVENT ITEM (List View)
+   ============================================ */
+.event-item {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    display: grid;
+    grid-template-columns: 100px 200px 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.event-item:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Event Item Date */
+.event-item-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    color: var(--color-white);
+    text-align: center;
+}
+
+.date-day {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+}
+
+.date-month {
+    font-size: var(--font-size-md);
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.date-year {
+    font-size: var(--font-size-xs);
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+/* Event Item Image */
+.event-item-image {
+    width: 200px;
+    height: 150px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.event-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-item:hover .event-item-image img {
+    transform: scale(1.1);
+}
+
+/* Event Item Content */
+.event-item-content h4 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.event-item-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.event-item-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    color: var(--color-text);
+}
+
+.event-item-meta i {
+    color: var(--color-primary);
+}
+
+.event-item-content p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.event-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-item-price {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.btn-event-details {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-event-details:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .page-header {
+        height: 300px;
+    }
+
+    .page-header h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .slick-prev {
+        left: -40px;
+    }
+
+    .slick-next {
+        right: -40px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 30px;
+    }
+
+    .event-image {
+        height: 280px;
+    }
+
+    .event-item {
+        grid-template-columns: 80px 150px 1fr;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+
+    .event-item-image {
+        width: 150px;
+        height: 120px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .page-header {
+        height: 250px;
+    }
+
+    .page-header h1 {
+        font-size: var(--font-size-2xl);
+        padding: 0 var(--spacing-md);
+    }
+
+    .events-carousel-section,
+    .events-list-section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .slick-prev {
+        left: 10px;
+    }
+
+    .slick-next {
+        right: 10px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 35px;
+        height: 35px;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 25px;
+    }
+
+    .event-image {
+        height: 250px;
+    }
+
+    .event-content {
+        padding: var(--spacing-lg);
+    }
+
+    .event-content h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .event-meta {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .event-item {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .event-item-date {
+        width: 100px;
+        margin: 0 auto;
+    }
+
+    .event-item-image {
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .event-item-footer {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+
+    .btn-event-details {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+    .page-header {
+        height: 200px;
+    }
+
+    .page-header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .event-image {
+        height: 220px;
+    }
+
+    .event-price {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+
+    .btn-book-event {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-2xl);
+    }
+}
