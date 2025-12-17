@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,8 +11,9 @@
         rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Élite Cuisine Restaurant - Fine Dining Experience</title>
+    <title>Contact Us - Élite Cuisine Restaurant</title>
     <link rel="icon" type="svg" href="assets/images/logo.svg" />
+
 </head>
 
 <body>
@@ -47,25 +48,25 @@
                 <span>Élite Cuisine Restaurant</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li class="nav-dropdown">
                     <a href="about.html">About ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="about.html">About Restaurant</a></li>
-                        <li><a href="about.html#services">Special Services</a></li>
-                        <li><a href="about.html#openings">Opening Hours</a></li>
-                        <li><a href="about.html#chefs">Meet Our Experts</a></li>
+                        <li><a href="about.html" class="smooth-scroll">About Restaurant</a></li>
+                        <li><a href="about.html" class="smooth-scroll" data-section="services">Special Services</a></li>
+                        <li><a href="about.html" class="smooth-scroll" data-section="openings">Opening Hours</a></li>
+                        <li><a href="about.html#chefs" class="smooth-scroll">Meet Our Experts</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown">
                     <a href="menu.html">Menu ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="index.html#top-sellers">Top Sellers</a></li>
-                        <li><a href="menu.html#menu">Full Menu</a></li>
+                        <li><a href="index.html#top-sellers" class="smooth-scroll">Top Sellers</a></li>
+                        <li><a href="menu.html" class="smooth-scroll">Full Menu</a></li>
                     </ul>
                 </li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
             <div class="nav-right">
                 <!-- Welcome Badge -->
@@ -90,161 +91,47 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="slideshow-container">
-            <div class="slide active">
-                <img src="assets/images/image3.jpeg" alt="Delicious Food">
-                <div class="slide-content">
-                    <h1>Welcome to Élite Cuisine Restaurant</h1>
-                    <p>Experience the finest dining with our expertly crafted dishes</p>
-                    <a href="contact.html"><button class="cta-button">Make a Reservation</button></a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="assets/images/food-dinner.jpg" alt="Fine Dining">
-                <div class="slide-content">
-                    <h1>Exquisite Flavors</h1>
-                    <p>Fresh, healthy, and delicious cuisine for every palate</p>
-                    <a href="menu.html"><button class="cta-button">View Menu</button></a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="assets/images/banner-bg-1.jpg" alt="Chef Special">
-                <div class="slide-content">
-                    <h1>Chef's Special</h1>
-                    <p>Discover our signature dishes prepared by master chefs</p>
-                    <a href="about.html"><button class="cta-button">Learn More</button></a>
-                </div>
-            </div>
-            <button class="prev" onclick="changeSlide(-1)">❮</button>
-            <button class="next" onclick="changeSlide(1)">❯</button>
-        </div>
-        <div class="dots-container">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-    </section>
-
-    <!-- Top Sellers Section -->
-    <section id="top-sellers" class="top-sellers-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Top Sellers</h2>
-                <p>Most Popular Dishes</p>
+                <h2>Contact Information</h2>
+                <p>Get in Touch</p>
             </div>
-            <div class="top-sellers-grid">
-                <div class="seller-card fade-in">
-                    <div class="seller-badge">🔥 Bestseller</div>
-                    <div class="seller-image">
-                        <img src="assets/images/v5_13.png" alt="Signature Steak">
-                    </div>
-                    <div class="seller-info">
-                        <h3>Signature Ribeye Steak</h3>
-                        <p>Prime cut ribeye with garlic mashed potatoes and red wine reduction</p>
-                        <div class="seller-details">
-                            <span class="price">$35</span>
-                            <div class="rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">(4.9/5)</span>
-                            </div>
-                        </div>
-                        <button class="order-btn">Order Now</button>
+            <div class="contact-info-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Address</h4>
+                        <p>123 Fine Dining Street<br>Downtown, City Center</p>
                     </div>
                 </div>
-                <div class="seller-card fade-in">
-                    <div class="seller-badge">👑 Chef's Choice</div>
-                    <div class="seller-image">
-                        <img src="assets/images/v5_63.png" alt="Lobster Thermidor">
-                    </div>
-                    <div class="seller-info">
-                        <h3>Lobster Thermidor</h3>
-                        <p>Fresh lobster with creamy sauce, herbs, and gruyere cheese</p>
-                        <div class="seller-details">
-                            <span class="price">$42</span>
-                            <div class="rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">(4.8/5)</span>
-                            </div>
-                        </div>
-                        <button class="order-btn">Order Now</button>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
                     </div>
                 </div>
-                <div class="seller-card fade-in">
-                    <div class="seller-badge">🌟 Popular</div>
-                    <div class="seller-image">
-                        <img src="assets/images/v5_97.png" alt="Grilled Salmon">
-                    </div>
-                    <div class="seller-info">
-                        <h3>Grilled Atlantic Salmon</h3>
-                        <p>Fresh salmon fillet with lemon butter sauce and seasonal vegetables</p>
-                        <div class="seller-details">
-                            <span class="price">$28</span>
-                            <div class="rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="rating-text">(4.7/5)</span>
-                            </div>
-                        </div>
-                        <button class="order-btn">Order Now</button>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@elitecuisine.com</p>
                     </div>
                 </div>
-                <div class="seller-card fade-in">
-                    <div class="seller-badge">💖 Customer Favorite</div>
-                    <div class="seller-image">
-                        <img src="assets/images/v12_80.png" alt="Truffle Pasta">
-                    </div>
-                    <div class="seller-info">
-                        <h3>Truffle Mushroom Pasta</h3>
-                        <p>Homemade pasta with truffle oil, wild mushrooms, and parmesan</p>
-                        <div class="seller-details">
-                            <span class="price">$26</span>
-                            <div class="rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">(4.9/5)</span>
-                            </div>
-                        </div>
-                        <button class="order-btn">Order Now</button>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <h4>Hours</h4>
+                        <p>Mon-Thu: 11:00 AM - 10:00 PM<br>
+                            Fri-Sat: 11:00 AM - 11:00 PM<br>
+                            Sun: 10:00 AM - 9:00 PM</p>
                     </div>
                 </div>
-                <div class="seller-card fade-in">
-                    <div class="seller-badge">🌶️ Spicy Special</div>
-                    <div class="seller-image">
-                        <img src="https://i.pinimg.com/1200x/f3/bb/57/f3bb577112e29ba59c4f44507898b26e.jpg"
-                            alt="Pav Bhaji">
-                    </div>
-                    <div class="seller-info">
-                        <h3>Pav Bhaji</h3>
-                        <p>Authentic Mumbai street food with spiced mashed vegetables and buttered pav</p>
-                        <div class="seller-details">
-                            <span class="price">$18</span>
-                            <div class="rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-text">(4.8/5)</span>
-                            </div>
-                        </div>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-                </div>
-                <div class="seller-card fade-in">
-                    <div class="seller-badge">🥟 Classic</div>
-                    <div class="seller-image">
-                        <img src="https://i.pinimg.com/1200x/6e/94/33/6e94333a677c9b292a9ae14221b13dfa.jpg"
-                            alt="Mughlai Samosa">
-                    </div>
-                    <div class="seller-info">
-                        <h3>Mughlai Samosa</h3>
-                        <p>Crispy pastry filled with spiced potatoes, peas, and aromatic herbs</p>
-                        <div class="seller-details">
-                            <span class="price">$12</span>
-                            <div class="rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="rating-text">(4.6/5)</span>
-                            </div>
-                        </div>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-                </div>
+            </div>
+            <div class="reservation-cta">
+                <button class="open-booking-btn">Make a Reservation</button>
             </div>
         </div>
     </section>
@@ -258,7 +145,6 @@
         </div>
         <div class="container">
             <div class="footer-content">
-                <!-- About Section -->
                 <div class="footer-section footer-about">
                     <div class="footer-logo">
                         <img src="assets/images/logo.svg" alt="Élite Cuisine Logo">
@@ -266,45 +152,20 @@
                     </div>
                     <p class="footer-tagline">Where every meal tells a story of passion, flavor, and culinary excellence. Join us for an unforgettable dining experience.</p>
                     <div class="footer-contact-info">
-                        <div class="contact-item">
-                            <span class="icon">📍</span>
-                            <span>1234 Gourmet Avenue, Culinary District<br>New York, NY 10018</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon">📞</span>
-                            <span>+1 (212) 555-FOOD (3663)</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon">✉️</span>
-                            <span>reservations@elitecuisine.com</span>
-                        </div>
+                        <div class="contact-item"><span class="icon">📍</span><span>1234 Gourmet Avenue, Culinary District<br>New York, NY 10018</span></div>
+                        <div class="contact-item"><span class="icon">📞</span><span>+1 (212) 555-FOOD (3663)</span></div>
+                        <div class="contact-item"><span class="icon">✉️</span><span>reservations@elitecuisine.com</span></div>
                     </div>
                 </div>
-                
-                <!-- Opening Hours -->
                 <div class="footer-section footer-hours">
                     <h4>Opening Hours</h4>
                     <ul class="hours-list">
-                        <li>
-                            <span class="day">Monday - Thursday</span>
-                            <span class="time">11:00 AM - 10:00 PM</span>
-                        </li>
-                        <li>
-                            <span class="day">Friday - Saturday</span>
-                            <span class="time">11:00 AM - 11:30 PM</span>
-                        </li>
-                        <li>
-                            <span class="day">Sunday</span>
-                            <span class="time">10:00 AM - 9:30 PM</span>
-                        </li>
-                        <li>
-                            <span class="day">Sunday Brunch</span>
-                            <span class="time">10:00 AM - 3:00 PM</span>
-                        </li>
+                        <li><span class="day">Monday - Thursday</span><span class="time">11:00 AM - 10:00 PM</span></li>
+                        <li><span class="day">Friday - Saturday</span><span class="time">11:00 AM - 11:30 PM</span></li>
+                        <li><span class="day">Sunday</span><span class="time">10:00 AM - 9:30 PM</span></li>
+                        <li><span class="day">Sunday Brunch</span><span class="time">10:00 AM - 3:00 PM</span></li>
                     </ul>
                 </div>
-
-                <!-- Policies & Guidelines -->
                 <div class="footer-section footer-policies">
                     <h4>Information</h4>
                     <ul>
@@ -316,57 +177,29 @@
                         <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
-                
-                <!-- Social & Newsletter -->
                 <div class="footer-section footer-social">
                     <h4>Stay Connected</h4>
                     <p class="social-text">Follow us for daily specials, new menu items, and exclusive dining experiences!</p>
                     <div class="social-links">
-                        <a href="#" class="social-link facebook" aria-label="Facebook" title="Follow us on Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link instagram" aria-label="Instagram" title="Follow us on Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link twitter" aria-label="Twitter" title="Follow us on Twitter">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link youtube" aria-label="YouTube" title="Watch our videos">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
+                        <a href="#" class="social-link facebook" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/></svg></a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
                     </div>
                     <div class="newsletter">
                         <h5>Newsletter Subscription</h5>
                         <p>Subscribe for exclusive offers & updates</p>
                         <form class="newsletter-form">
                             <input type="email" placeholder="Enter your email" required>
-                            <button type="submit" aria-label="Subscribe">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </button>
+                            <button type="submit" aria-label="Subscribe"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
                         </form>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 Élite Cuisine Restaurant. Crafted with ❤️ for food lovers worldwide.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Sitemap</a>
-                        <span>•</span>
-                        <a href="#">Accessibility</a>
-                    </div>
+                    <div class="footer-bottom-links"><a href="#">Sitemap</a><span>•</span><a href="#">Accessibility</a></div>
                 </div>
             </div>
         </div>
@@ -489,11 +322,13 @@
                     <div class="food-menu-list">
                         <div class="food-item" data-name="Pav Bhaji" data-price="7.99">
                             <span class="food-name">Caramelized Clay Pot Pork </span>
+                            <!-- (Thịt Kho Tộ) -->
                             <span class="food-price">$8.99</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>
                         <div class="food-item" data-name="Mughlai Samosa" data-price="7.99">
                             <span class="food-name">Hanoi Grilled Fish with Dill & Turmeric </span>
+                            <!-- (Chả Cá Lã Vọng) -->
                             <span class="food-price">$10.99</span>
                             <button class="add-to-cart-btn">+</button>
                         </div>

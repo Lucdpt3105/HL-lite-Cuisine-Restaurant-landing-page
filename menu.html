@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rancho&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Menu - Élite Cuisine Restaurant</title>
+    <link rel="icon" type="svg" href="assets/images/logo.svg" />
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-logo">
+            <h1>Élite Cuisine</h1>
+            <p>Restaurant</p>
+        </div>
+    </div>
+
+    <!-- Guest Name Modal (First Time) -->
+    <div id="guestNameModal" class="guest-modal">
+        <div class="guest-modal-content">
+            <h2 class="guest-modal-title">Welcome to Élite Cuisine</h2>
+            <p class="guest-modal-subtitle">Please enter your name to continue</p>
+            <form id="guestNameForm" class="guest-form">
+                <div class="form-group">
+                    <input type="text" id="guestName" name="guestName" placeholder="Your Name" required
+                        autocomplete="off">
+                </div>
+                <button type="submit" class="guest-submit-btn">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/logo.svg" alt="Élite Cuisine Logo" class="header-logo">
+                <span>Élite Cuisine Restaurant</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="nav-dropdown">
+                    <a href="menu.html" class="active">Menu ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#top-sellers">Top Sellers</a></li>
+                        <li><a href="menu.html#menu">Full Menu</a></li>
+                    </ul>
+                </li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <!-- Welcome Badge -->
+                <div id="welcomeBadge" class="welcome-badge hidden">
+                    <span class="welcome-text">Hello, <span id="guestDisplayName"></span>! 👋</span>
+                </div>
+                <!-- Cart Button -->
+                <button class="nav-cart-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="nav-cart-count">0</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Menu</h2>
+                <p>Fine Dining</p>
+            </div>
+            <div class="menu-columns">
+                <div class="menu-column">
+                    <h3 class="menu-column-title">Breakfast</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://exhalecoffee.com/cdn/shop/articles/Milk_in_coffee_1.png?v=1752065678&width=2048"
+                                alt="Coffee with Milk">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Coffee with Milk</h4>
+                            <p>3 croissants, Marmalade</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$5</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://img.taste.com.au/HkPciham/taste/2018/12/pancakes-145017-1.jpg"
+                                alt="Pancake Special">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Pancake Special</h4>
+                            <p>Fresh berries, Maple syrup</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$2</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2024/08/french-toast-recipe.jpg"
+                                alt="French Toast">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>French Toast</h4>
+                            <p>Cinnamon, Powdered sugar</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$4</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/736x/9e/ac/7d/9eac7d7e4ea41e9d2a101fc1ded72058.jpg"
+                                alt="Lotus Leaf Sticky Rice">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇻🇳 Lotus Leaf Sticky Rice</h4>
+                            <p>Sticky Rice</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$7.49</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/1200x/a9/cf/e1/a9cfe17f5741eda0fc6ce46f8291fb45.jpg"
+                                alt="Thanh Hoa Fermented Rolls">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇻🇳 Thanh Hoa Fermented Rolls</h4>
+                            <p>Fermented Pork</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$3.66</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/736x/53/e6/5a/53e65a042230eab22e90deb0fab82202.jpg"
+                                alt="French Onion Soup">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇫🇷 French Onion Soup</h4>
+                            <p>Onion</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$0.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/1200x/1a/79/a9/1a79a9fb98fb856ae3278a7cbdddc8a2.jpg"
+                                alt="Thai Green Curry">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇹🇭 Thai Green Curry</h4>
+                            <p>Green Curry Paste</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$1.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h3 class="menu-column-title">Lunch</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.services.kitchenstories.io/iVj59av0wHJY3TWq3Ym32RuJvyg=/3840x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R3022-final-photo-3.jpg"
+                                alt="Grilled Salmon">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Grilled Salmon</h4>
+                            <p>Lemon butter, Vegetables</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$15.5</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://www.maggi.co.uk/sites/default/files/srh_recipes/3ee1954a36009dd59be2d362a2a44cf6.jpg"
+                                alt="Caesar Salad">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Caesar Salad</h4>
+                            <p>Chicken breast, Parmesan</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$2.2</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.themodernproper.com/production/posts/PastaPrimavera_9.jpg?w=960&h=960&q=82&fm=jpg&fit=crop&dm=1719193336&s=937ab7a995140869e824b6eac4374aa7"
+                                alt="Pasta Primavera">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Pasta Primavera</h4>
+                            <p>Fresh vegetables, Herbs</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$2</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/1200x/e6/21/96/e6219602fc59a4aab0a18b43bbeaee59.jpg"
+                                alt="Caramelized Clay Pot Pork">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇻🇳 Caramelized Clay Pot Pork</h4>
+                            <p>Pork</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$8.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/736x/3b/d3/66/3bd3669499328a010aba51ec05992475.jpg"
+                                alt="Hanoi Grilled Fish">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇻🇳 Hanoi Grilled Fish</h4>
+                            <p>Fish</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$10.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/736x/61/07/d0/6107d0d1ebf9bab637f1c5c661b2f6a4.jpg"
+                                alt="Imperial Hue Beef Soup">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇻🇳 Imperial Hue Beef Soup</h4>
+                            <p>Beef</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$9.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/1200x/80/57/ad/8057ad8c29918e6a868b192331bd9f2b.jpg"
+                                alt="Korean Spicy Fried Chicken">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇰🇷 Korean Spicy Fried Chicken</h4>
+                            <p>Chicken</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$12.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-column">
+                    <h3 class="menu-column-title">Dinner</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://justcook.butcherbox.com/wp-content/uploads/2019/11/Perfect-Pan-Seared-Ribeye-Steak.jpg"
+                                alt="Ribeye Steak">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Ribeye Steak</h4>
+                            <p>Garlic mash, Red wine sauce</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$35</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://www.thammachartseafood.com/cdn/shop/articles/custom_resized_c2ce2d9c-242a-41b3-91c8-8d9135db3c53.jpg?v=1645092146"
+                                alt="Lobster Thermidor">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Lobster Thermidor</h4>
+                            <p>Creamy sauce, Fresh herbs</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$42</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://cdn.prod.website-files.com/65e2ec4e51f6693a3af9151d/660e61203a404d676b0da725_9bac0481-de13-4ff5-8586-61cb9be9942e.webp"
+                                alt="Duck Confit">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>Duck Confit</h4>
+                            <p>Orange glaze, Wild rice</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$38</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/736x/ed/fc/6f/edfc6ff4bc092542d2fcce987044d4e1.jpg"
+                                alt="Sam Son Seafood Platter">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇻🇳 Sam Son Seafood Platter</h4>
+                            <p>Mixed Seafood</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$15.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/1200x/80/57/ad/8057ad8c29918e6a868b192331bd9f2b.jpg"
+                                alt="Japanese Teriyaki Salmon">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇯🇵 Japanese Teriyaki Salmon</h4>
+                            <p>Salmon</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$14.49</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/736x/0d/f3/e3/0df3e3e36e5f6efbe53143d3103f22cc.jpg"
+                                alt="Italian Truffle Pasta">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇮🇹 Italian Truffle Pasta</h4>
+                            <p>Truffle</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$1.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://i.pinimg.com/1200x/ee/95/4a/ee954aa836d8623e51b9dc40f57d090d.jpg"
+                                alt="American BBQ Ribs">
+                        </div>
+                        <div class="menu-item-info">
+                            <h4>🇺🇸 American BBQ Ribs</h4>
+                            <p>Pork Ribs</p>
+                            <div class="menu-item-footer">
+                                <span class="price">$14.99</span>
+                                <button class="menu-order-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="Élite Cuisine Logo">
+                        <h3>Élite Cuisine</h3>
+                    </div>
+                    <p class="footer-tagline">Where every meal tells a story of passion, flavor, and culinary excellence. Join us for an unforgettable dining experience.</p>
+                    <div class="footer-contact-info">
+                        <div class="contact-item"><span class="icon">📍</span><span>1234 Gourmet Avenue, Culinary District<br>New York, NY 10018</span></div>
+                        <div class="contact-item"><span class="icon">📞</span><span>+1 (212) 555-FOOD (3663)</span></div>
+                        <div class="contact-item"><span class="icon">✉️</span><span>reservations@elitecuisine.com</span></div>
+                    </div>
+                </div>
+                <div class="footer-section footer-hours">
+                    <h4>Opening Hours</h4>
+                    <ul class="hours-list">
+                        <li><span class="day">Monday - Thursday</span><span class="time">11:00 AM - 10:00 PM</span></li>
+                        <li><span class="day">Friday - Saturday</span><span class="time">11:00 AM - 11:30 PM</span></li>
+                        <li><span class="day">Sunday</span><span class="time">10:00 AM - 9:30 PM</span></li>
+                        <li><span class="day">Sunday Brunch</span><span class="time">10:00 AM - 3:00 PM</span></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-policies">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Allergen Information</a></li>
+                        <li><a href="#">Health & Safety</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-social">
+                    <h4>Stay Connected</h4>
+                    <p class="social-text">Follow us for daily specials, new menu items, and exclusive dining experiences!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z"/></svg></a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Newsletter Subscription</h5>
+                        <p>Subscribe for exclusive offers & updates</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" aria-label="Subscribe"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Élite Cuisine Restaurant. Crafted with ❤️ for food lovers worldwide.</p>
+                    <div class="footer-bottom-links"><a href="#">Sitemap</a><span>•</span><a href="#">Accessibility</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="booking-modal cart-modal">
+        <div class="booking-modal-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">Your Cart</h2>
+            <div id="cartModalItems" class="cart-modal-items"></div>
+            <div class="cart-modal-summary">
+                <div class="cart-row">
+                    <span>Subtotal</span>
+                    <span id="cartModalSubtotal">$0.00</span>
+                </div>
+                <div class="cart-row cart-total">
+                    <span>Total</span>
+                    <span id="cartModalTotal">$0.00</span>
+                </div>
+            </div>
+            <button class="booking-submit-btn book-now-btn">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Booking Options Modal -->
+    <div id="bookingOptionsModal" class="booking-modal">
+        <div class="booking-modal-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">BOOKING</h2>
+            <div class="booking-options">
+                <button class="booking-option-btn" data-type="seats-only">
+                    <span class="booking-icon">🪑</span>
+                    Reservation for Seats
+                </button>
+                <button class="booking-option-btn" data-type="seats-with-food">
+                    <span class="booking-icon">🍽️</span>
+                    Reservation for Seats With Food
+                </button>
+                <button class="booking-option-btn" data-type="celebration">
+                    <span class="booking-icon">🎉</span>
+                    Reservation for Celebration
+                </button>
+            </div>
+            <div class="booking-social-links">
+                <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z" />
+                    </svg></a>
+                <a href="#" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg></a>
+                <a href="#" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.505 4.505 0 0 0 12 8.5zm6.5-2a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+                    </svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Form Modal -->
+    <div id="bookingFormModal" class="booking-modal">
+        <div class="booking-modal-content booking-form-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">BOOKING</h2>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingDate">Date</label>
+                        <input type="date" id="bookingDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime">Time</label>
+                        <input type="time" id="bookingTime" name="time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberOfPeople">Number of People <span class="form-hint">(Number of Peoples are Limited
+                            to 10 Peoples)</span></label>
+                    <input type="number" id="numberOfPeople" name="people" min="1" max="10" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingEmail">Email</label>
+                        <input type="email" id="bookingEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingPhone">Phone</label>
+                        <input type="tel" id="bookingPhone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="specialInstructions">Special Instruction</label>
+                    <textarea id="specialInstructions" name="instructions" rows="4"></textarea>
+                </div>
+                <button type="submit" class="booking-submit-btn">Complete Your Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking with Food Modal -->
+    <div id="bookingFoodModal" class="booking-modal">
+        <div class="booking-modal-content booking-food-content">
+            <span class="booking-modal-close">&times;</span>
+            <h2 class="booking-modal-title">BOOKING</h2>
+            <div class="booking-food-layout">
+                <div class="food-menu-section">
+                    <h3>Care for another serving ?</h3>
+                    <div class="food-menu-list">
+                        <div class="food-item" data-name="Pav Bhaji" data-price="7.99">
+                            <span class="food-name">Caramelized Clay Pot Pork </span>
+                            <!-- (Thịt Kho Tộ) -->
+                            <span class="food-price">$8.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Mughlai Samosa" data-price="7.99">
+                            <span class="food-name">Hanoi Grilled Fish with Dill & Turmeric </span>
+                            <!-- (Chả Cá Lã Vọng) -->
+                            <span class="food-price">$10.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Aloo Papdi Chaat" data-price="7.99">
+                            <span class="food-name">Imperial Hue Beef Noodle Soup</span>
+                            <span class="food-price">$7.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Karif Bonda" data-price="7.99">
+                            <span class="food-name">Saigon Crispy Spring Rolls</span>
+                            <span class="food-price">$6.99</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Matar Karanji" data-price="7.99">
+                            <span class="food-name">Mekong Coconut Curry Shrimp</span>
+                            <span class="food-price">$10.03</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                        <div class="food-item" data-name="Tikka Bun" data-price="7.99">
+                            <span class="food-name">Thanh Hoa Grilled Fermented Pork Roll</span>
+                            <span class="food-price">$3.66</span>
+                            <button class="add-to-cart-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-section">
+                    <h3>Cart</h3>
+                    <div id="cartItems" class="cart-items"></div>
+                    <div class="cart-summary">
+                        <div class="cart-row">
+                            <span>Cost of Food</span>
+                            <span id="cartSubtotal">$0.00</span>
+                        </div>
+                        <div class="cart-row">
+                            <span>Round Off</span>
+                            <span id="cartRoundOff">$0.00</span>
+                        </div>
+                        <div class="cart-row cart-total">
+                            <span>Total Cost</span>
+                            <span id="cartTotal">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="cart-payment-options">
+                        <button class="payment-btn">Pay At Restaurant</button>
+                        <button class="payment-btn">Pay In Advance</button>
+                    </div>
+                </div>
+            </div>
+            <button class="booking-complete-btn">Complete Your Booking</button>
+        </div>
+    </div>
+
+    <!-- Booking Success Modal -->
+    <div id="bookingSuccessModal" class="booking-modal">
+        <div class="booking-modal-content booking-success-content">
+            <h1 class="success-title">Thank You For Making Us A Part Of You Joy's Day</h1>
+            <p class="success-message">Please Note That We Take Your Special Day As Our Own We Believe Taking To Us Will
+                Be Best For Your Celebration Arrangement</p>
+            <div class="success-contact">
+                <p><strong>Email</strong> - booknow.res.gmail.com</p>
+                <p><strong>Phone</strong> - +444-9999-66666</p>
+            </div>
+            <button class="success-btn">Thank You</button>
+            <div class="booking-social-links">
+                <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073C2 17.087 5.656 21.128 10.438 21.954V14.89h-2.97v-2.818h2.97V9.845c0-2.937 1.753-4.558 4.433-4.558 1.285 0 2.63.23 2.63.23v2.89h-1.478c-1.456 0-1.906.903-1.906 1.828v2.19h3.24l-.518 2.818h-2.722v7.068C18.344 21.128 22 17.087 22 12.073z" />
+                    </svg></a>
+                <a href="#" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg></a>
+                <a href="#" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.505 4.505 0 0 0 12 8.5zm6.5-2a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+                    </svg></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/dark.js"></script>
+</body>
+
+</html>

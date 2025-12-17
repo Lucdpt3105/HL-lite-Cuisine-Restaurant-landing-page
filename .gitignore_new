@@ -1,0 +1,31 @@
+# Thư mục cũ (không cần thiết nữa)
+css/
+js/
+images/
+
+# Backup files
+index_old.html
+*.backup
+
+# IDE và Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (nếu có)
+node_modules/
+
+# Build outputs (nếu có)
+dist/
+build/
