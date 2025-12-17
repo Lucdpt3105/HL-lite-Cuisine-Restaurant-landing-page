@@ -1197,7 +1197,7 @@ body {
 }
 
 .event-list-item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1230,7 +1230,7 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 .event-month {
@@ -1271,7 +1271,7 @@ body {
 }
 
 .event-list-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: #2a1810;
