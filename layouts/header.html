@@ -1,0 +1,73 @@
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="/" class="logo">
+            <span class="logo-icon">🍴</span>
+            <span class="logo-text">Élite Cuisine</span>
+        </a>
+        
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="/index.html" class="nav-link">Home</a></li>
+            <li><a href="/pages/about.html" class="nav-link">About</a></li>
+            <li><a href="/pages/menu.html" class="nav-link">Menu</a></li>
+            <li><a href="/pages/events.html" class="nav-link">Events</a></li>
+            <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+            <div class="welcome-badge" id="welcome-badge">
+                <span class="welcome-icon">👋</span>
+                <span class="welcome-text">Xin chào, <span id="user-name">Guest</span>!</span>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    }
+    
+    // Navbar scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Active link highlighting
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+        if (currentPath === linkPath || (currentPath === '/' && linkPath.includes('index.html'))) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Load username from localStorage
+    const storedName = localStorage.getItem('guestName');
+    if (storedName) {
+        document.getElementById('user-name').textContent = storedName;
+    }
+</script>
