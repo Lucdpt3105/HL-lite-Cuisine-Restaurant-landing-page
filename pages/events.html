@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Élite Cuisine Restaurant</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Rancho&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main-modular.css">
+    <link rel="stylesheet" href="../css/pages/events.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Events & Occasions</h1>
+            <p>Host Your Special Moments in Our Elegant Venue</p>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <span>Events</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-subtitle">Special Occasions</span>
+                <h2>Upcoming Events</h2>
+                <div class="title-line">
+                    <div class="line-left"></div>
+                    <span class="icon-divider">🎉</span>
+                    <div class="line-right"></div>
+                </div>
+                <p>Join us for exclusive dining experiences and celebrations</p>
+            </div>
+            
+            <div class="events-carousel">
+                <div class="carousel-container">
+                    <div class="event-card active">
+                        <div class="event-image">
+                            <img src="../images/event1.jpg" alt="Wine Tasting Event">
+                            <div class="event-date">
+                                <span class="date-day">15</span>
+                                <span class="date-month">Feb</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-category">🍷 Wine & Dine</span>
+                            <h3>Premium Wine Tasting Evening</h3>
+                            <p>Join our sommelier for an exclusive wine tasting experience featuring selections from renowned vineyards around the world.</p>
+                            <div class="event-details">
+                                <div class="detail-item">
+                                    <span class="icon">🕒</span>
+                                    <span>7:00 PM - 10:00 PM</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon">💰</span>
+                                    <span>$75 per person</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="btn-primary">Reserve Your Spot</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="../images/event2.jpg" alt="Chef's Table">
+                            <div class="event-date">
+                                <span class="date-day">22</span>
+                                <span class="date-month">Feb</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-category">👨‍🍳 Chef's Special</span>
+                            <h3>Chef's Table Experience</h3>
+                            <p>An intimate 7-course tasting menu prepared by our Executive Chef, featuring seasonal ingredients and innovative techniques.</p>
+                            <div class="event-details">
+                                <div class="detail-item">
+                                    <span class="icon">🕒</span>
+                                    <span>6:30 PM - 9:30 PM</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon">💰</span>
+                                    <span>$120 per person</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="btn-primary">Reserve Your Spot</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="../images/event3.jpg" alt="Live Music Dinner">
+                            <div class="event-date">
+                                <span class="date-day">14</span>
+                                <span class="date-month">Mar</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-category">🎵 Entertainment</span>
+                            <h3>Live Jazz & Dinner Night</h3>
+                            <p>Enjoy a delightful evening of smooth jazz performances while savoring our exquisite cuisine in an elegant atmosphere.</p>
+                            <div class="event-details">
+                                <div class="detail-item">
+                                    <span class="icon">🕒</span>
+                                    <span>8:00 PM - 11:00 PM</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon">💰</span>
+                                    <span>$65 per person</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="btn-primary">Reserve Your Spot</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="setCarouselSlide(0)"></span>
+                    <span class="dot" onclick="setCarouselSlide(1)"></span>
+                    <span class="dot" onclick="setCarouselSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Events Section -->
+    <section class="private-events-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-subtitle">Host Your Event</span>
+                <h2>Private Dining & Celebrations</h2>
+                <div class="title-line">
+                    <div class="line-left"></div>
+                    <span class="icon-divider">✨</span>
+                    <div class="line-right"></div>
+                </div>
+                <p>Perfect venue for weddings, corporate events, and special celebrations</p>
+            </div>
+            
+            <div class="private-events-grid">
+                <div class="private-event-card">
+                    <div class="private-event-icon">💍</div>
+                    <h3>Weddings</h3>
+                    <p>Create unforgettable memories on your special day with our elegant venue and custom catering services</p>
+                    <ul class="event-features">
+                        <li>Customized menu planning</li>
+                        <li>Professional event coordination</li>
+                        <li>Elegant venue decoration</li>
+                        <li>Accommodates up to 150 guests</li>
+                    </ul>
+                    <a href="contact.html" class="btn-outline">Plan Your Wedding</a>
+                </div>
+                
+                <div class="private-event-card">
+                    <div class="private-event-icon">💼</div>
+                    <h3>Corporate Events</h3>
+                    <p>Impress clients and colleagues with professional business dining and meeting spaces</p>
+                    <ul class="event-features">
+                        <li>Business lunch packages</li>
+                        <li>Conference room facilities</li>
+                        <li>A/V equipment available</li>
+                        <li>Flexible seating arrangements</li>
+                    </ul>
+                    <a href="contact.html" class="btn-outline">Book Corporate Event</a>
+                </div>
+                
+                <div class="private-event-card">
+                    <div class="private-event-icon">🎂</div>
+                    <h3>Celebrations</h3>
+                    <p>Birthdays, anniversaries, or any special occasion deserves a memorable celebration</p>
+                    <ul class="event-features">
+                        <li>Private dining rooms</li>
+                        <li>Customizable party packages</li>
+                        <li>Specialty cakes and desserts</li>
+                        <li>Personalized service</li>
+                    </ul>
+                    <a href="contact.html" class="btn-outline">Plan Your Party</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="event-gallery-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-subtitle">Past Events</span>
+                <h2>Event Gallery</h2>
+                <div class="title-line">
+                    <div class="line-left"></div>
+                    <span class="icon-divider">📸</span>
+                    <div class="line-right"></div>
+                </div>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../images/gallery1.jpg" alt="Event 1">
+                    <div class="gallery-overlay">
+                        <h4>Wine Tasting Night</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery2.jpg" alt="Event 2">
+                    <div class="gallery-overlay">
+                        <h4>Corporate Dinner</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery3.jpg" alt="Event 3">
+                    <div class="gallery-overlay">
+                        <h4>Wedding Reception</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery4.jpg" alt="Event 4">
+                    <div class="gallery-overlay">
+                        <h4>Birthday Celebration</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/utils/layout-loader.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Events Carousel
+        let carouselIndex = 0;
+        
+        function moveCarousel(direction) {
+            const cards = document.querySelectorAll('.event-card');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+            
+            cards[carouselIndex].classList.remove('active');
+            dots[carouselIndex].classList.remove('active');
+            
+            carouselIndex += direction;
+            if (carouselIndex >= cards.length) carouselIndex = 0;
+            if (carouselIndex < 0) carouselIndex = cards.length - 1;
+            
+            cards[carouselIndex].classList.add('active');
+            dots[carouselIndex].classList.add('active');
+        }
+        
+        function setCarouselSlide(index) {
+            const cards = document.querySelectorAll('.event-card');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+            
+            cards[carouselIndex].classList.remove('active');
+            dots[carouselIndex].classList.remove('active');
+            
+            carouselIndex = index;
+            
+            cards[carouselIndex].classList.add('active');
+            dots[carouselIndex].classList.add('active');
+        }
+        
+        // Auto-advance carousel
+        setInterval(() => moveCarousel(1), 6000);
+    </script>
+</body>
+</html>
