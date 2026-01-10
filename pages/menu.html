@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Élite Cuisine Restaurant</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Rancho&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main-modular.css">
+    <link rel="stylesheet" href="../css/pages/menu.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Our Menu</h1>
+            <p>Explore Our Exquisite Selection of Culinary Delights</p>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <span>Menu</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-subtitle">Discover Our Flavors</span>
+                <h2>Full Menu</h2>
+                <div class="title-line">
+                    <div class="line-left"></div>
+                    <span class="icon-divider">🍴</span>
+                    <div class="line-right"></div>
+                </div>
+                <p>Each dish is crafted with the finest ingredients and culinary expertise</p>
+            </div>
+            
+            <!-- Menu Filter -->
+            <div class="menu-filter">
+                <button class="filter-btn active" data-category="all">All Dishes</button>
+                <button class="filter-btn" data-category="appetizers">Appetizers</button>
+                <button class="filter-btn" data-category="mains">Main Courses</button>
+                <button class="filter-btn" data-category="desserts">Desserts</button>
+                <button class="filter-btn" data-category="beverages">Beverages</button>
+            </div>
+            
+            <!-- Menu Grid -->
+            <div class="menu-grid">
+                <!-- Appetizers -->
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="../images/app1.jpg" alt="Caesar Salad">
+                        <span class="menu-badge">Fresh</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Classic Caesar Salad</h3>
+                            <span class="price">$12</span>
+                        </div>
+                        <p>Crisp romaine lettuce, parmesan, croutons, and our signature dressing</p>
+                        <div class="menu-tags">
+                            <span class="tag">🥗 Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="../images/app2.jpg" alt="Bruschetta">
+                        <span class="menu-badge">Popular</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Italian Bruschetta</h3>
+                            <span class="price">$10</span>
+                        </div>
+                        <p>Toasted bread topped with fresh tomatoes, basil, and olive oil</p>
+                        <div class="menu-tags">
+                            <span class="tag">🥗 Vegetarian</span>
+                            <span class="tag">🌿 Vegan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="appetizers">
+                    <div class="menu-image">
+                        <img src="../images/app3.jpg" alt="Calamari">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Crispy Calamari</h3>
+                            <span class="price">$15</span>
+                        </div>
+                        <p>Lightly fried squid served with marinara and lemon aioli</p>
+                        <div class="menu-tags">
+                            <span class="tag">🦑 Seafood</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Courses -->
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-image">
+                        <img src="../images/v5_13.png" alt="Ribeye Steak">
+                        <span class="menu-badge">🔥 Bestseller</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Signature Ribeye Steak</h3>
+                            <span class="price">$35</span>
+                        </div>
+                        <p>Prime cut ribeye with garlic mashed potatoes and red wine reduction</p>
+                        <div class="menu-tags">
+                            <span class="tag">🥩 Premium</span>
+                            <span class="tag">⭐ Chef's Choice</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-image">
+                        <img src="../images/v5_18.png" alt="Grilled Salmon">
+                        <span class="menu-badge">Healthy</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Grilled Atlantic Salmon</h3>
+                            <span class="price">$28</span>
+                        </div>
+                        <p>Fresh salmon fillet with herbs, lemon butter sauce and vegetables</p>
+                        <div class="menu-tags">
+                            <span class="tag">🐟 Seafood</span>
+                            <span class="tag">💚 Healthy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-image">
+                        <img src="../images/v5_27.png" alt="Pasta Carbonara">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Authentic Carbonara</h3>
+                            <span class="price">$22</span>
+                        </div>
+                        <p>Classic Italian pasta with pancetta, eggs, and parmesan cheese</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍝 Pasta</span>
+                            <span class="tag">🇮🇹 Italian</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-image">
+                        <img src="../images/main4.jpg" alt="Chicken Parmigiana">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Chicken Parmigiana</h3>
+                            <span class="price">$24</span>
+                        </div>
+                        <p>Breaded chicken breast with marinara sauce and melted mozzarella</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍗 Poultry</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-image">
+                        <img src="../images/main5.jpg" alt="Lamb Chops">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Herb-Crusted Lamb Chops</h3>
+                            <span class="price">$38</span>
+                        </div>
+                        <p>Tender lamb chops with rosemary, garlic, and seasonal vegetables</p>
+                        <div class="menu-tags">
+                            <span class="tag">🥩 Premium</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-image">
+                        <img src="../images/main6.jpg" alt="Vegetarian Risotto">
+                        <span class="menu-badge">🌿 Vegan Option</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Mushroom Risotto</h3>
+                            <span class="price">$20</span>
+                        </div>
+                        <p>Creamy arborio rice with wild mushrooms, truffle oil, and parmesan</p>
+                        <div class="menu-tags">
+                            <span class="tag">🥗 Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desserts -->
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="../images/dessert1.jpg" alt="Tiramisu">
+                        <span class="menu-badge">Classic</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Classic Tiramisu</h3>
+                            <span class="price">$9</span>
+                        </div>
+                        <p>Traditional Italian dessert with espresso-soaked ladyfingers and mascarpone</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍰 Sweet</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="../images/dessert2.jpg" alt="Chocolate Lava Cake">
+                        <span class="menu-badge">🔥 Hot</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Molten Chocolate Lava Cake</h3>
+                            <span class="price">$11</span>
+                        </div>
+                        <p>Warm chocolate cake with a gooey center, served with vanilla ice cream</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍫 Chocolate</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-image">
+                        <img src="../images/dessert3.jpg" alt="Cheesecake">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>New York Cheesecake</h3>
+                            <span class="price">$10</span>
+                        </div>
+                        <p>Rich and creamy cheesecake with graham cracker crust and berry compote</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍰 Sweet</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Beverages -->
+                <div class="menu-item" data-category="beverages">
+                    <div class="menu-image">
+                        <img src="../images/drink1.jpg" alt="Red Wine">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>House Red Wine</h3>
+                            <span class="price">$8/glass</span>
+                        </div>
+                        <p>Selection of premium red wines from renowned vineyards</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍷 Wine</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="beverages">
+                    <div class="menu-image">
+                        <img src="../images/drink2.jpg" alt="Cocktail">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Signature Cocktails</h3>
+                            <span class="price">$12</span>
+                        </div>
+                        <p>Handcrafted cocktails mixed by our expert bartenders</p>
+                        <div class="menu-tags">
+                            <span class="tag">🍸 Cocktail</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="beverages">
+                    <div class="menu-image">
+                        <img src="../images/drink3.jpg" alt="Coffee">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header">
+                            <h3>Specialty Coffee</h3>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Premium espresso drinks made with freshly roasted beans</p>
+                        <div class="menu-tags">
+                            <span class="tag">☕ Coffee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Taste These Delights?</h2>
+                <p>Reserve your table and enjoy an unforgettable dining experience</p>
+                <a href="contact.html" class="btn-primary btn-lg">Make a Reservation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/utils/layout-loader.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Menu Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
