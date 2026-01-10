@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Élite Cuisine Restaurant</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Rancho&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main-modular.css">
+    <link rel="stylesheet" href="./css/pages/home.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Slideshow Section -->
+    <section id="home" class="hero">
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="images/image3.jpeg" alt="Delicious Food">
+                <div class="slide-content">
+                    <h1>Welcome to Élite Cuisine Restaurant</h1>
+                    <p>Experience the finest dining with our expertly crafted dishes</p>
+                    <a href="pages/menu.html" class="cta-button">Explore Menu</a>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="images/food-dinner.jpg" alt="Fine Dining">
+                <div class="slide-content">
+                    <h1>Exquisite Flavors</h1>
+                    <p>Fresh, healthy, and delicious cuisine for every palate</p>
+                    <a href="pages/menu.html" class="cta-button">View Menu</a>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="images/banner-bg-1.jpg" alt="Chef Special">
+                <div class="slide-content">
+                    <h1>Chef's Special</h1>
+                    <p>Discover our signature dishes prepared by master chefs</p>
+                    <a href="pages/about.html" class="cta-button">Learn More</a>
+                </div>
+            </div>
+            
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+        
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Featured Dishes Section -->
+    <section id="featured-dishes" class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Dishes</h2>
+                <p>Our Most Popular Selections</p>
+                <div class="title-line">
+                    <div class="line-left"></div>
+                    <span class="icon-divider">🍴</span>
+                    <div class="line-right"></div>
+                </div>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="images/v5_13.png" alt="Signature Steak">
+                        <div class="featured-badge">🔥 Bestseller</div>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Signature Ribeye Steak</h3>
+                        <p>Prime cut ribeye with garlic mashed potatoes and red wine reduction</p>
+                        <div class="featured-footer">
+                            <span class="price">$35</span>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <a href="pages/menu.html" class="btn-primary">View Menu</a>
+                    </div>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="images/v5_18.png" alt="Grilled Salmon">
+                        <div class="featured-badge">✨ Chef's Choice</div>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Grilled Atlantic Salmon</h3>
+                        <p>Fresh salmon fillet with herbs, lemon butter sauce and vegetables</p>
+                        <div class="featured-footer">
+                            <span class="price">$28</span>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <a href="pages/menu.html" class="btn-primary">View Menu</a>
+                    </div>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="images/v5_27.png" alt="Pasta Carbonara">
+                        <div class="featured-badge">💚 Popular</div>
+                    </div>
+                    <div class="featured-info">
+                        <h3>Authentic Carbonara</h3>
+                        <p>Classic Italian pasta with pancetta, eggs, and parmesan cheese</p>
+                        <div class="featured-footer">
+                            <span class="price">$22</span>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <a href="pages/menu.html" class="btn-primary">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="welcome-grid">
+                <div class="welcome-image">
+                    <img src="images/restaurant-interior.jpg" alt="Restaurant Interior">
+                </div>
+                <div class="welcome-content">
+                    <span class="section-subtitle">Welcome to Élite Cuisine</span>
+                    <h2>Where Culinary Excellence Meets Elegant Ambiance</h2>
+                    <div class="title-line">
+                        <div class="line-left"></div>
+                        <span class="icon-divider">🍽️</span>
+                        <div class="line-right"></div>
+                    </div>
+                    <p>Since our establishment, we have been dedicated to providing our guests with an unforgettable fine dining experience.</p>
+                    <p>Our commitment to quality ingredients, innovative techniques, and exceptional service has made us a premier destination for food enthusiasts.</p>
+                    <a href="pages/about.html" class="btn-primary">Discover Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Fine Dining?</h2>
+                <p>Make your reservation today and embark on a culinary journey</p>
+                <a href="pages/contact.html" class="btn-primary btn-lg">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="./js/utils/layout-loader.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        // Auto slideshow
+        let slideIndex = 0;
+        function changeSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+        function currentSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            slideIndex = n - 1;
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+        setInterval(() => changeSlide(1), 5000);
+    </script>
+</body>
+</html>
